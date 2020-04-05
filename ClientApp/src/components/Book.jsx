@@ -8,12 +8,20 @@ import FlipPage from 'react-flip-page'
 const Book = () => {
   return (
     <>
-      <FlipPage showSwipeHint orientation="horizontal">
-        <img className="pages" src={Page1} alt="First Page" />
-        <img className="pages" src={Page2} alt="Second Page" />
-        <img className="pages" src={Page3} alt="Third Page" />
-        <img className="pages" src={Page4} alt="Fourth Page" />
-      </FlipPage>
+      <div className="flip-book-container">
+        <FlipPage
+          uncutPages
+          height="675"
+          width="responsive"
+          showSwipeHint
+          orientation="horizontal"
+        >
+          <img className="pages" src={Page1} alt="First Page" />
+          <img className="pages" src={Page2} alt="Second Page" />
+          <img className="pages" src={Page3} alt="Third Page" />
+          <img className="pages" src={Page4} alt="Fourth Page" />
+        </FlipPage>
+      </div>
     </>
   )
 }
