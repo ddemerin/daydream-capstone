@@ -7,8 +7,8 @@ namespace daydream_capstone.Models
 {
     public partial class DatabaseContext : DbContext
     {
-
-
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Page> Pages { get; set; }
 
 
         private string ConvertPostConnectionToConnectionString(string connection)
