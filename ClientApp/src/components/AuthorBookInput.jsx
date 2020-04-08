@@ -37,7 +37,10 @@ const AuthorBookInput = () => {
     console.log('adding', author, book)
     const respAuthor = await axios.post('api/Author', author)
     console.log(respAuthor)
-    const respBook = await axios.post('api/Book', book)
+    const respBook = await axios.post(
+      'api/Book/Author/' + respAuthor.data.id,
+      book
+    )
     console.log(respBook)
     if (
       (respAuthor.status === 200 && respBook.status === 200) ||

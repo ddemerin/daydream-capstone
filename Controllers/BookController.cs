@@ -76,12 +76,15 @@ namespace daydream_capstone.Controllers
         // POST: api/Book
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<Book>> PostBook(Book book)
+        [HttpPost("author/{Id}")]
+        public async Task<ActionResult<Book>> PostBook([FromRoute]int Id, Book book)
         {
-            // var authorId =
-            // book.AuthorId = authorId
-            _context.Books.Add(book);
+            var author = await _context.Authors.FirstOrDefaultAsync();
+            if (author == null)
+            {
+                return NotFound();
+            }
+            author.Books.Add(book);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
