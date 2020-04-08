@@ -6,6 +6,6 @@ namespace daydream_capstone.Models
     {
         public int Id { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime DateSubmitted { get; set; }
+        public DateTime DateSubmitted { get; set; } = DateTime.Now;
     }
 }

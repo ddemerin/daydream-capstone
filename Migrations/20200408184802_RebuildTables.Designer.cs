@@ -10,8 +10,8 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200408011657_V1")]
-    partial class V1
+    [Migration("20200408184802_RebuildTables")]
+    partial class RebuildTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace daydreamcapstone.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("AuthorId")
+                    b.Property<int?>("AuthorId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("DateWritten")
@@ -92,9 +92,7 @@ namespace daydreamcapstone.Migrations
                 {
                     b.HasOne("daydream_capstone.Models.Author", null)
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AuthorId");
                 });
 
             modelBuilder.Entity("daydream_capstone.Models.Page", b =>

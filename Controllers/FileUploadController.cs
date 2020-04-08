@@ -39,7 +39,7 @@ namespace daydream_capstone.Controllers
                 {
                     ImageUrl = results.SecureUri.AbsoluteUri
                 };
-                _context.Pages.Add(uploadedImage);
+                await _context.Pages.AddAsync(uploadedImage);
                 await _context.SaveChangesAsync();
                 return Ok(uploadedImage);
             }

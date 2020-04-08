@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace daydreamcapstone.Migrations
 {
-    public partial class V1 : Migration
+    public partial class RebuildTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,10 +28,10 @@ namespace daydreamcapstone.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    AuthorId = table.Column<int>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    DateWritten = table.Column<DateTime>(nullable: false)
+                    DateWritten = table.Column<DateTime>(nullable: false),
+                    AuthorId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,7 +41,7 @@ namespace daydreamcapstone.Migrations
                         column: x => x.AuthorId,
                         principalTable: "Authors",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

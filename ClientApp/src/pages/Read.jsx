@@ -1,11 +1,11 @@
 import React from 'react'
-import Book from '../components/Book'
+import FlipBook from '../components/FlipBook'
 
 const Read = () => {
   return (
     <div>
       <div className="flip-book">
-        <Book />
+        <FlipBook />
       </div>
     </div>
   )

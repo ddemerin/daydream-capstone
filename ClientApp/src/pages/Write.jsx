@@ -1,10 +1,9 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
-import Book from '../components/Book'
+import AuthorBookInput from '../components/AuthorBookInput'
 
 export const Write = () => {
-  const [uploadedImageURL, setUploadedImageURL] = useState('')
   const [images, setImages] = useState([])
   const onDrop = useCallback(acceptedFiles => {
     console.log(acceptedFiles)
@@ -38,6 +37,7 @@ export const Write = () => {
   return (
     <div className="upload-container">
       <h1>Upload your book!</h1>
+      <AuthorBookInput />
       <div {...getRootProps()}>
         <input {...getInputProps()} />
         {isDragActive ? (
@@ -45,6 +45,10 @@ export const Write = () => {
         ) : (
           <p>Upload your pages!</p>
         )}
+        <p>
+          Please upload the pages of your book one at a time, starting from the
+          cover and continuing with page 1, then page 2, etc, etc.
+        </p>
       </div>
       {images.map(image => {
         return (

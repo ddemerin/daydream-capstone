@@ -79,6 +79,8 @@ namespace daydream_capstone.Controllers
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
+            // var authorId =
+            // book.AuthorId = authorId
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
 

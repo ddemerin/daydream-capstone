@@ -5,7 +5,7 @@ import Page3 from '../images/Frog-n-Toad-_3.png'
 import Page4 from '../images/Frog-n-Toad-_4.png'
 import FlipPage from 'react-flip-page'
 
-const Book = () => {
+const FlipBook = () => {
   return (
     <>
       <div className="flip-book-container">
@@ -26,4 +26,4 @@ const Book = () => {
   )
 }
 
-export default Book
+export default FlipBook
