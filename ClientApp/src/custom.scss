@@ -262,11 +262,13 @@ button {
   border-radius: 0.5rem;
 }
 
-.coming-soon {
-  color: rgb(38, 0, 255);
-  text-align: center;
-  margin-top: 25rem;
-  z-index: -1;
+.author-book-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  padding: 0;
+  margin-top: 15.5vh;
 }
 
 .login-information {

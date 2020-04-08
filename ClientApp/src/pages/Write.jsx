@@ -1,64 +1,111 @@
-import React, { useCallback, useState, useEffect } from 'react'
-import { useDropzone } from 'react-dropzone'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import AuthorBookInput from '../components/AuthorBookInput'
 
-export const Write = () => {
-  const [images, setImages] = useState([])
-  const onDrop = useCallback(acceptedFiles => {
-    console.log(acceptedFiles)
-    const fileToUpload = acceptedFiles[0]
-    const formData = new FormData()
-    formData.append('file', fileToUpload)
-    axios
-      .post('/file/upload', formData, {
-        headers: {
-          'content-type': 'multipart/form-data',
-          accept: 'application/json',
-        },
-      })
-      .then(resp => {
-        console.log(resp.data)
-        console.log(images)
-        setImages(prevImages => [resp.data, ...prevImages])
-      })
-  }, [])
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+const Write = () => {
+  const [author, setAuthor] = useState({})
+  const [book, setBook] = useState({})
+  const [wasSuccessfullyCreated, setWasSuccessfullyCreate] = useState({
+    shouldRedirect: false,
+  })
 
-  const loadPages = async () => {
-    const resp = await axios.get('/api/page')
-    setImages(resp.data)
+  const updateAuthorData = e => {
+    e.preventDefault()
+    const key = e.target.name
+    console.log(key)
+    const value = e.target.value
+    console.log(value)
+    setAuthor(prevAuthor => {
+      prevAuthor[key] = value
+      return prevAuthor
+    })
   }
 
-  useEffect(() => {
-    loadPages()
-  }, [])
+  const updateBookData = e => {
+    e.preventDefault()
+    const key = e.target.name
+    console.log(key)
+    const value = e.target.value
+    console.log(value)
+    setBook(prevBook => {
+      prevBook[key] = value
+      return prevBook
+    })
+  }
+
+  const addDataToApi = async () => {
+    console.log('adding', author, book)
+    const respAuthor = await axios.post('api/Author', author)
+    console.log(respAuthor)
+    const respBook = await axios.post(
+      'api/Book/Author/' + respAuthor.data.id,
+      book
+    )
+    console.log(respBook)
+  }
 
   return (
-    <div className="upload-container">
-      <h1>Upload your book!</h1>
-      <AuthorBookInput />
-      <div {...getRootProps()}>
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Drop the files here ...</p>
-        ) : (
-          <p>Upload your pages!</p>
-        )}
-        <p>
-          Please upload the pages of your book one at a time, starting from the
-          cover and continuing with page 1, then page 2, etc, etc.
-        </p>
-      </div>
-      {images.map(image => {
-        return (
-          <li className="image-tile">
-            <img src={image.imageUrl} alt="" />
-            {/* <p>{image.dateSubmitted}</p> */}
-          </li>
-        )
-      })}
-    </div>
+    <>
+      <form className="author-book-form">
+        <div className="author-book-form-body">
+          <section className="book-section">
+            <p>What is the title of the book?</p>
+            <input
+              className="book-input"
+              type="text"
+              name="Title"
+              onChange={updateBookData}
+              required
+            />
+            <p>Write a short description of the book.</p>
+            <textarea
+              className="description-input"
+              type="text"
+              name="Description"
+              placeholder="Ex. In the first of five short stories, clever Frog finds a way to
+                rouse his sleepy friend. And as children will soon see, theirs is
+                a marvelous friendship. When Frog doesn't feel well, Toad tries to
+                tell him a story. When Toad loses a button, Frog helps him look
+                for it."
+              onChange={updateBookData}
+              required
+            />
+            {/* <p>When was the book written?</p>
+            <input
+              className="date-input"
+              type="text"
+              name="DateWritten"
+              onChange={updateBookData}
+              required
+            /> */}
+          </section>
+          <section className="author-section">
+            <p>What is the name of the author?</p>
+            <input
+              className="author-input"
+              type="text"
+              name="Name"
+              onChange={updateAuthorData}
+              required
+            />
+            <p>Write a short blurb about the author.</p>
+            <textarea
+              className="blurb-input"
+              type="text"
+              name="Blurb"
+              placeholder="Ex. Arnold Stark Lobel (May 22, 1933 – December 4, 1987) was an American author of children's books, including the Frog and Toad series and Mouse Soup."
+              onChange={updateAuthorData}
+              required
+            />
+          </section>
+        </div>
+        <form action="./upload">
+          <button className="submit-data" onClick={addDataToApi}>
+            Upload Book and Author
+          </button>
+        </form>
+      </form>
+    </>
   )
 }
 

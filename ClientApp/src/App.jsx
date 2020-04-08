@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Upload from './pages/Upload'
 import Write from './pages/Write'
 import Read from './pages/Read'
 import Search from './pages/Search'
@@ -78,6 +79,7 @@ export default class App extends Component {
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/read" component={Read}></Route>
           <Route exact path="/write" component={Write}></Route>
+          <Route exact path="/upload" component={Upload}></Route>
           <Route exact path="/search" component={Search}></Route>
           <Route path="*" component={NotFound}></Route>
         </Switch>
