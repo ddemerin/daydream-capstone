@@ -10,8 +10,8 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200406185130_AddedTables")]
-    partial class AddedTables
+    [Migration("20200408011657_V1")]
+    partial class V1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,24 @@ namespace daydreamcapstone.Migrations
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            modelBuilder.Entity("daydream_capstone.Models.Author", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Blurb")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Authors");
+                });
 
             modelBuilder.Entity("daydream_capstone.Models.Book", b =>
                 {
@@ -42,6 +60,8 @@ namespace daydreamcapstone.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.ToTable("Books");
                 });
 
@@ -55,7 +75,10 @@ namespace daydreamcapstone.Migrations
                     b.Property<int?>("BookId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Url")
+                    b.Property<DateTime>("DateSubmitted")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -63,6 +86,15 @@ namespace daydreamcapstone.Migrations
                     b.HasIndex("BookId");
 
                     b.ToTable("Pages");
+                });
+
+            modelBuilder.Entity("daydream_capstone.Models.Book", b =>
+                {
+                    b.HasOne("daydream_capstone.Models.Author", null)
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("daydream_capstone.Models.Page", b =>

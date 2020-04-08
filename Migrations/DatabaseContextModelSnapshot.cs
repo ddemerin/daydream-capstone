@@ -73,7 +73,10 @@ namespace daydreamcapstone.Migrations
                     b.Property<int?>("BookId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Url")
+                    b.Property<DateTime>("DateSubmitted")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
