@@ -5,9 +5,6 @@ import axios from 'axios'
 const Write = () => {
   const [author, setAuthor] = useState({})
   const [book, setBook] = useState({})
-  const [wasSuccessfullyCreated, setWasSuccessfullyCreate] = useState({
-    shouldRedirect: false,
-  })
 
   const updateAuthorData = e => {
     e.preventDefault()
@@ -99,7 +96,7 @@ const Write = () => {
             />
           </section>
         </div>
-        <form action="./upload">
+        <form action="./upload/">
           <button className="submit-data" onClick={addDataToApi}>
             Upload Book and Author
           </button>

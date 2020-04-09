@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "react-dropzone": "^10.2.2",
     "react-flip-page": "^1.6.0"
   }
 }

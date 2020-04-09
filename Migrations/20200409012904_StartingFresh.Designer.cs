@@ -10,8 +10,8 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200408184802_RebuildTables")]
-    partial class RebuildTables
+    [Migration("20200409012904_StartingFresh")]
+    partial class StartingFresh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,9 +48,6 @@ namespace daydreamcapstone.Migrations
 
                     b.Property<int?>("AuthorId")
                         .HasColumnType("integer");
-
-                    b.Property<DateTime>("DateWritten")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");

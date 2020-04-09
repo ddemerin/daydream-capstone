@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using daydream_capstone.Models;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace daydream_capstone.Controllers
 {
@@ -22,14 +24,14 @@ namespace daydream_capstone.Controllers
 
         // GET: api/Page
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Page>>> GetPages()
+        public async Task<ActionResult<IEnumerable<Models.Page>>> GetPages()
         {
             return await _context.Pages.OrderBy(page => page.Id).ToListAsync();
         }
 
         // GET: api/Page/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Page>> GetPage(int id)
+        public async Task<ActionResult<Models.Page>> GetPage(int id)
         {
             var page = await _context.Pages.FindAsync(id);
 
@@ -45,7 +47,7 @@ namespace daydream_capstone.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPage(int id, Page page)
+        public async Task<IActionResult> PutPage(int id, Models.Page page)
         {
             if (id != page.Id)
             {
@@ -77,17 +79,40 @@ namespace daydream_capstone.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Page>> PostPage(Page page)
+        public async Task<ActionResult<Models.Page>> UploadFile([FromRoute]int Id, IFormFile file)
         {
-            _context.Pages.Add(page);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPage", new { id = page.Id }, page);
+            var extension = file.FileName.Split('.').Last();
+            var contentType = file.ContentType;
+            if ((extension == "jpeg" || extension == "jpg" || extension == "png") && contentType == "image/jpeg" || contentType == "image/png")
+            {
+                var cloudinary = new Cloudinary(new Account("ddemerin", "867338739995681", "nTFKC24ATil4vdqGqqvThHC9Wu4"));
+                var uploudParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(file.FileName, file.OpenReadStream())
+                };
+                var results = cloudinary.Upload(uploudParams);
+                var uploadedImage = new Models.Page
+                {
+                    ImageUrl = results.SecureUri.AbsoluteUri
+                };
+                var book = await _context.Books.FirstOrDefaultAsync();
+                if (book == null)
+                {
+                    return NotFound();
+                }
+                book.Pages.Add(uploadedImage);
+                await _context.SaveChangesAsync();
+                return Ok(uploadedImage);
+            }
+            else
+            {
+                return BadRequest("Not a valid Image");
+            }
         }
 
         // DELETE: api/Page/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Page>> DeletePage(int id)
+        public async Task<ActionResult<Models.Page>> DeletePage(int id)
         {
             var page = await _context.Pages.FindAsync(id);
             if (page == null)

@@ -10,7 +10,7 @@ export const Upload = () => {
     const formData = new FormData()
     formData.append('file', fileToUpload)
     axios
-      .post('/file/upload', formData, {
+      .post('api/page', formData, {
         headers: {
           'content-type': 'multipart/form-data',
           accept: 'application/json',
