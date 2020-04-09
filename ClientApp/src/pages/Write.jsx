@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import '../write.scss'
 
 const Write = () => {
   const [author, setAuthor] = useState({})
@@ -32,12 +33,14 @@ const Write = () => {
 
   const addDataToApi = async () => {
     console.log('adding', author, book)
-    const respAuthor = await axios.post('api/Author', author)
+    // const respAuthor = await axios.post(`api/Author/`, author)
+    const respAuthor = await axios.post(`api/Author/`, author)
     console.log(respAuthor)
-    const respBook = await axios.post(
-      'api/Book/Author/' + respAuthor.data.id,
-      book
-    )
+    const respBook = await axios.post('api/Book/', book)
+    // const respBook = await axios.post(
+    //   'api/Book/Author/' + respAuthor.data.id,
+    //   book
+    // )
     console.log(respBook)
   }
 
@@ -96,11 +99,13 @@ const Write = () => {
             />
           </section>
         </div>
-        <form action="./upload/">
-          <button className="submit-data" onClick={addDataToApi}>
-            Upload Book and Author
-          </button>
-        </form>
+        <div className="upload-button">
+          <a href="./upload/">
+            <button className="submit-data" onClick={addDataToApi}>
+              Upload Book and Author
+            </button>
+          </a>
+        </div>
       </form>
     </>
   )

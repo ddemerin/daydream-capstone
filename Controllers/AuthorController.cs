@@ -85,6 +85,16 @@ namespace daydream_capstone.Controllers
             return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
         }
 
+        // [HttpPost("{authorId}/books")]
+        // public async Task<ActionResult> AddAuthorToBook(int authorId, Book book)
+        // {
+        //     book.AuthorId = authorId;
+        //     _context.Books.Add(book);
+        //     await _context.SaveChangesAsync();
+
+        //     return Ok(book);
+        // }
+
         // DELETE: api/Author/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Author>> DeleteAuthor(int id)

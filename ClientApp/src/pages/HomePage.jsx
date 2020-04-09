@@ -1,5 +1,6 @@
 import React from 'react'
 import FrogToad from '../images/Frog_and_Toad.jpg'
+import '../featuredBook.scss'
 
 const HomePage = () => {
   return (

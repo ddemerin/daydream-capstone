@@ -1,0 +1,52 @@
+@import './variables.scss';
+
+.author-book-form {
+  display: flex;
+  flex-direction: column;
+  border: 0.05rem solid rgb(120, 151, 209);
+  border-radius: 0.5rem;
+  background-color: rgba(103, 148, 231, 0.589);
+  width: 90%;
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  margin: 14vh 0 0 5%;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    padding: 0;
+    margin-top: 15.5vh;
+  }
+
+  .image-tile img {
+    width: 100%;
+    height: 500px;
+  }
+
+  .image-tile {
+    margin: 1rem 1rem 10rem 1rem;
+    padding: 1rem;
+    border: 0.1rem solid black;
+  }
+
+  .upload-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  textarea {
+    height: 8rem;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+  }
+}

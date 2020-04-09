@@ -1,0 +1,75 @@
+@import './variables.scss';
+
+.hamburger {
+  height: 9vh;
+  width: 10vh;
+  position: relative;
+  right: 0.5vh;
+  bottom: 4vh;
+}
+
+.top-nav {
+  height: 500px;
+  width: 600px;
+  background: $nav-background;
+  color: $color;
+  -webkit-clip-path: circle(24px at 30px 24px);
+  clip-path: circle(42px at 6vh 3vh);
+  transition: -webkit-clip-path $transition * 0.75, clip-path $transition/2;
+
+  &:hover,
+  :active {
+    transition-timing-function: ease-out;
+    transition-duration: 0.4s;
+    -webkit-clip-path: circle(300px at 225px 24px);
+    clip-path: circle(300px at 10px 64px);
+  }
+}
+
+a {
+  display: block;
+  line-height: 50px;
+  padding: 0 20px;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+
+  &:active {
+    background: #ffe082;
+  }
+  &:active {
+    background: $nav-background;
+  }
+}
+
+@mixin line {
+  width: 20px;
+  height: 2px;
+  background: $color;
+}
+
+.navicon {
+  padding: 23px 20px;
+  cursor: pointer;
+  transform-origin: 32px 24px;
+
+  div {
+    position: relative;
+    @include line;
+
+    &:before,
+    &:after {
+      display: block;
+      content: '';
+      @include line;
+      position: absolute;
+    }
+
+    &:before {
+      top: -7px;
+    }
+    &:after {
+      top: 7px;
+    }
+  }
+}

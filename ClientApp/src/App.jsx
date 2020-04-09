@@ -14,6 +14,7 @@ import SearchIcon from './images/searchIcon4x4.png'
 import WriteIcon from './images/writeIcon4x4.png'
 import Logo from './images/Daydream_LOGO.png'
 import './custom.scss'
+import './navMenu.scss'
 
 export default class App extends Component {
   static displayName = App.name

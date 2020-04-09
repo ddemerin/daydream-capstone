@@ -10,8 +10,8 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200409012904_StartingFresh")]
-    partial class StartingFresh
+    [Migration("20200409124622_AddTables")]
+    partial class AddTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace daydreamcapstone.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AuthorId")
+                    b.Property<int>("AuthorId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
@@ -87,14 +87,16 @@ namespace daydreamcapstone.Migrations
 
             modelBuilder.Entity("daydream_capstone.Models.Book", b =>
                 {
-                    b.HasOne("daydream_capstone.Models.Author", null)
+                    b.HasOne("daydream_capstone.Models.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("daydream_capstone.Models.Page", b =>
                 {
-                    b.HasOne("daydream_capstone.Models.Book", null)
+                    b.HasOne("daydream_capstone.Models.Book", "Book")
                         .WithMany("Pages")
                         .HasForeignKey("BookId");
                 });
