@@ -4,6 +4,7 @@ import Page2 from '../images/Frog-n-Toad-_2.png'
 import Page3 from '../images/Frog-n-Toad-_3.png'
 import Page4 from '../images/Frog-n-Toad-_4.png'
 import FlipPage from 'react-flip-page'
+import '../flipBook.scss'
 
 const FlipBook = () => {
   return (
@@ -11,7 +12,7 @@ const FlipBook = () => {
       <div className="flip-book-container">
         <FlipPage
           uncutPages
-          height="675"
+          height="670"
           width="responsive"
           showSwipeHint
           orientation="horizontal"

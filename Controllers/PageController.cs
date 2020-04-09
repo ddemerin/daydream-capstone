@@ -95,12 +95,6 @@ namespace daydream_capstone.Controllers
                 {
                     ImageUrl = results.SecureUri.AbsoluteUri
                 };
-                var book = await _context.Books.FirstOrDefaultAsync();
-                if (book == null)
-                {
-                    return NotFound();
-                }
-                book.Pages.Add(uploadedImage);
                 await _context.SaveChangesAsync();
                 return Ok(uploadedImage);
             }
