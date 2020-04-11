@@ -3,15 +3,16 @@ import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 import '../upload.scss'
 
-export const UploadPage = () => {
+export const UploadPage = props => {
+  const bookId = props.match.params.id
   const [images, setImages] = useState([])
   const onDrop = useCallback(acceptedFiles => {
     console.log(acceptedFiles)
     const fileToPage = acceptedFiles[0]
     const formData = new FormData()
-    formData.append('file', fileToUpload)
+    formData.append('file', fileToPage)
     axios
-      .post('api/page', formData, {
+      .post(`api/book/${bookId}/page`, formData, {
         headers: {
           'content-type': 'multipart/form-data',
           accept: 'application/json',

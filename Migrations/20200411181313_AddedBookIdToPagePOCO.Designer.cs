@@ -10,8 +10,8 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200409124622_AddTables")]
-    partial class AddTables
+    [Migration("20200411181313_AddedBookIdToPagePOCO")]
+    partial class AddedBookIdToPagePOCO
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,7 +69,7 @@ namespace daydreamcapstone.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("BookId")
+                    b.Property<int>("BookId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("DateSubmitted")
@@ -98,7 +98,9 @@ namespace daydreamcapstone.Migrations
                 {
                     b.HasOne("daydream_capstone.Models.Book", "Book")
                         .WithMany("Pages")
-                        .HasForeignKey("BookId");
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

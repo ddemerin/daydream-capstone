@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using daydream_capstone.Models;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace daydream_capstone.Controllers
 {
@@ -84,19 +86,41 @@ namespace daydream_capstone.Controllers
 
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
         }
-        // [HttpPost("author/{Id}")]
-        // public async Task<ActionResult<Book>> PostBook([FromRoute]int Id, Book book)
-        // {
-        //     var author = await _context.Authors.FirstOrDefaultAsync();
-        //     if (author == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //     author.Books.Add(book);
-        //     await _context.SaveChangesAsync();
+        [HttpPost("{bookId}/page")]
+        public async Task<ActionResult<Models.Page>> UploadFile([FromRoute]int Id, IFormFile file)
+        {
+            var extension = file.FileName.Split('.').Last();
+            var contentType = file.ContentType;
+            if ((extension == "jpeg" || extension == "jpg" || extension == "png") && contentType == "image/jpeg" || contentType == "image/png")
+            {
+                var cloudinary = new Cloudinary(new Account("ddemerin", "867338739995681", "nTFKC24ATil4vdqGqqvThHC9Wu4"));
+                var uploudParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(file.FileName, file.OpenReadStream())
+                };
+                var results = cloudinary.Upload(uploudParams);
+                var uploadedImage = new Models.Page
+                {
+                    ImageUrl = results.SecureUri.AbsoluteUri
+                };
+                await _context.SaveChangesAsync();
+                return Ok(uploadedImage);
+            }
+            else
+            {
+                return BadRequest("Not a valid Image");
+            }
+        }
 
-        //     return CreatedAtAction("GetBook", new { id = book.Id }, book);
-        // }
+        [HttpPost("{bookId}/page")]
+        public async Task<ActionResult<Book>> AddBookToPage(int bookId, Models.Page page)
+        {
+            page.BookId = bookId;
+            _context.Pages.Add(page);
+            await _context.SaveChangesAsync();
+
+            return Ok(page);
+        }
 
         // DELETE: api/Book/5
         [HttpDelete("{id}")]

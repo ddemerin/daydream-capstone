@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import UploadAuthor from './pages/Author'
-import UploadBook from './pages/Book'
-import UploadPage from './pages/Page'
+import UploadAuthor from './pages/UploadAuthor'
+import UploadBook from './pages/UploadBook'
+import UploadPage from './pages/UploadPage'
 import Read from './pages/Read'
 import Search from './pages/Search'
 import HomePage from './pages/HomePage'
@@ -82,7 +82,7 @@ export default class App extends Component {
           <Route exact path="/read" component={Read}></Route>
           <Route exact path="/author" component={UploadAuthor}></Route>
           <Route exact path="/author/:id" component={UploadBook}></Route>
-          <Route exact path="/page" component={UploadPage}></Route>
+          <Route exact path="/book/:id" component={UploadPage}></Route>
           <Route exact path="/search" component={Search}></Route>
           <Route path="*" component={NotFound}></Route>
         </Switch>

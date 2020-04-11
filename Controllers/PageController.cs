@@ -78,31 +78,31 @@ namespace daydream_capstone.Controllers
         // POST: api/Page
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<Models.Page>> UploadFile([FromRoute]int Id, IFormFile file)
-        {
-            var extension = file.FileName.Split('.').Last();
-            var contentType = file.ContentType;
-            if ((extension == "jpeg" || extension == "jpg" || extension == "png") && contentType == "image/jpeg" || contentType == "image/png")
-            {
-                var cloudinary = new Cloudinary(new Account("ddemerin", "867338739995681", "nTFKC24ATil4vdqGqqvThHC9Wu4"));
-                var uploudParams = new ImageUploadParams()
-                {
-                    File = new FileDescription(file.FileName, file.OpenReadStream())
-                };
-                var results = cloudinary.Upload(uploudParams);
-                var uploadedImage = new Models.Page
-                {
-                    ImageUrl = results.SecureUri.AbsoluteUri
-                };
-                await _context.SaveChangesAsync();
-                return Ok(uploadedImage);
-            }
-            else
-            {
-                return BadRequest("Not a valid Image");
-            }
-        }
+        // [HttpPost]
+        // public async Task<ActionResult<Models.Page>> UploadFile([FromRoute]int Id, IFormFile file)
+        // {
+        //     var extension = file.FileName.Split('.').Last();
+        //     var contentType = file.ContentType;
+        //     if ((extension == "jpeg" || extension == "jpg" || extension == "png") && contentType == "image/jpeg" || contentType == "image/png")
+        //     {
+        //         var cloudinary = new Cloudinary(new Account("ddemerin", "867338739995681", "nTFKC24ATil4vdqGqqvThHC9Wu4"));
+        //         var uploudParams = new ImageUploadParams()
+        //         {
+        //             File = new FileDescription(file.FileName, file.OpenReadStream())
+        //         };
+        //         var results = cloudinary.Upload(uploudParams);
+        //         var uploadedImage = new Models.Page
+        //         {
+        //             ImageUrl = results.SecureUri.AbsoluteUri
+        //         };
+        //         await _context.SaveChangesAsync();
+        //         return Ok(uploadedImage);
+        //     }
+        //     else
+        //     {
+        //         return BadRequest("Not a valid Image");
+        //     }
+        // }
 
         // DELETE: api/Page/5
         [HttpDelete("{id}")]

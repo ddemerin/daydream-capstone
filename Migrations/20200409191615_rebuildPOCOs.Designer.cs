@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using daydream_capstone.Models;
@@ -9,9 +10,10 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20200409191615_rebuildPOCOs")]
+    partial class rebuildPOCOs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,7 +69,7 @@ namespace daydreamcapstone.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("BookId")
+                    b.Property<int?>("BookId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("DateSubmitted")
@@ -96,9 +98,7 @@ namespace daydreamcapstone.Migrations
                 {
                     b.HasOne("daydream_capstone.Models.Book", "Book")
                         .WithMany("Pages")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BookId");
                 });
 #pragma warning restore 612, 618
         }
