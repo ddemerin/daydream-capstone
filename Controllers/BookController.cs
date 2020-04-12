@@ -87,7 +87,7 @@ namespace daydream_capstone.Controllers
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
         }
         [HttpPost("{bookId}/page")]
-        public async Task<ActionResult<Models.Page>> UploadFile([FromRoute]int Id, IFormFile file)
+        public async Task<ActionResult<Models.Page>> UploadFile([FromRoute]int bookId, IFormFile file)
         {
             var extension = file.FileName.Split('.').Last();
             var contentType = file.ContentType;
@@ -112,15 +112,15 @@ namespace daydream_capstone.Controllers
             }
         }
 
-        [HttpPost("{bookId}/page")]
-        public async Task<ActionResult<Book>> AddBookToPage(int bookId, Models.Page page)
-        {
-            page.BookId = bookId;
-            _context.Pages.Add(page);
-            await _context.SaveChangesAsync();
+        // [HttpPost("{bookId}/page")]
+        // public async Task<ActionResult<Book>> AddBookToPage(int bookId, Models.Page page)
+        // {
+        //     page.BookId = bookId;
+        //     _context.Pages.Add(page);
+        //     await _context.SaveChangesAsync();
 
-            return Ok(page);
-        }
+        //     return Ok(page);
+        // }
 
         // DELETE: api/Book/5
         [HttpDelete("{id}")]

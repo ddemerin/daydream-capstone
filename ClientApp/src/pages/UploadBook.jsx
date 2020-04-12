@@ -25,9 +25,9 @@ const UploadBook = props => {
 
   const addBookToApi = async e => {
     e.preventDefault()
-    // console.log('adding', book)
+    console.log('adding', book)
     const resp = await axios.post(`api/author/${authorId}/book`, book)
-    // console.log(resp)
+    console.log(resp)
     if (resp.status === 200) {
       setWasSuccessfullyCreated({
         shouldRedirect: true,

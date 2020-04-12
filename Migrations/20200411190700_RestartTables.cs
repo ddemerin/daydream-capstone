@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace daydreamcapstone.Migrations
 {
-    public partial class rebuildPOCOs : Migration
+    public partial class RestartTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,7 +51,7 @@ namespace daydreamcapstone.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ImageUrl = table.Column<string>(nullable: true),
                     DateSubmitted = table.Column<DateTime>(nullable: false),
-                    BookId = table.Column<int>(nullable: true)
+                    BookId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,7 +61,7 @@ namespace daydreamcapstone.Migrations
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

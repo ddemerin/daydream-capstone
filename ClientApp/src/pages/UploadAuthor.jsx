@@ -32,6 +32,7 @@ const UploadAuthor = () => {
         shouldRedirect: true,
         newAuthorInformation: resp.data,
       })
+      console.log(resp.data)
     }
   }
   if (wasSuccessfullyCreated.shouldRedirect) {

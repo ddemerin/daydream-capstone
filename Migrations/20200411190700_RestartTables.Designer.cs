@@ -10,8 +10,8 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200411181313_AddedBookIdToPagePOCO")]
-    partial class AddedBookIdToPagePOCO
+    [Migration("20200411190700_RestartTables")]
+    partial class RestartTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
