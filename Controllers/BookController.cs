@@ -78,7 +78,7 @@ namespace daydream_capstone.Controllers
         // POST: api/Book
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
+        [HttpPut("{bookId}/page")]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
             _context.Books.Add(book);
@@ -98,10 +98,10 @@ namespace daydream_capstone.Controllers
                 {
                     File = new FileDescription(file.FileName, file.OpenReadStream())
                 };
-                var results = cloudinary.Upload(uploudParams);
-                var uploadedImage = new Models.Page
+                var results = cloudinary.Upload(uploudParams); var uploadedImage = new Models.Page
                 {
-                    ImageUrl = results.SecureUri.AbsoluteUri
+                    ImageUrl = results.SecureUri.AbsoluteUri,
+                    BookId = bookId,
                 };
                 await _context.SaveChangesAsync();
                 return Ok(uploadedImage);
@@ -111,16 +111,6 @@ namespace daydream_capstone.Controllers
                 return BadRequest("Not a valid Image");
             }
         }
-
-        // [HttpPost("{bookId}/page")]
-        // public async Task<ActionResult<Book>> AddBookToPage(int bookId, Models.Page page)
-        // {
-        //     page.BookId = bookId;
-        //     _context.Pages.Add(page);
-        //     await _context.SaveChangesAsync();
-
-        //     return Ok(page);
-        // }
 
         // DELETE: api/Book/5
         [HttpDelete("{id}")]
