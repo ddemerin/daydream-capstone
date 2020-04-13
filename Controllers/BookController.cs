@@ -102,7 +102,9 @@ namespace daydream_capstone.Controllers
                 {
                     ImageUrl = results.SecureUri.AbsoluteUri,
                     BookId = bookId,
+                    Id = 2,
                 };
+                _context.Pages.Add(uploadedImage);
                 await _context.SaveChangesAsync();
                 return Ok(uploadedImage);
             }
