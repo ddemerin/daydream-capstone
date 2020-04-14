@@ -10,8 +10,8 @@ using daydream_capstone.Models;
 namespace daydreamcapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200413193608_RestartTables")]
-    partial class RestartTables
+    [Migration("20200413231300_CleanTables")]
+    partial class CleanTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

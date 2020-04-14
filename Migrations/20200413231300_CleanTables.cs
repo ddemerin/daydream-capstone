@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace daydreamcapstone.Migrations
 {
-    public partial class RestartTables : Migration
+    public partial class CleanTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

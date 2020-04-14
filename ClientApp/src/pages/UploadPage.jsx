@@ -5,7 +5,7 @@ import '../upload.scss'
 
 export const UploadPage = props => {
   const bookId = props.match.params.id
-  const [images, setImages] = useState({})
+  const [images, setImages] = useState([])
   console.log(bookId)
 
   const onDrop = useCallback(acceptedFiles => {
@@ -22,15 +22,16 @@ export const UploadPage = props => {
       })
       .then(resp => {
         console.log(resp.data)
-        setImages(resp.data)
         console.log(images)
+        setImages(prevImages => [resp.data, ...prevImages])
       })
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   const loadPages = async () => {
-    const resp = await axios.get('/api/page')
+    const resp = await axios.get(`/api/page`)
     setImages(resp.data)
+    console.log(resp.data)
   }
 
   useEffect(() => {
@@ -56,14 +57,14 @@ export const UploadPage = props => {
         Please upload the pages of your book one at a time, starting from the
         cover and continuing with page 1, then page 2, etc, etc.
       </p>
-      {/* {images.map(image => {
+      {images.map(image => {
         return (
           <li className="image-tile">
             <img src={image.imageUrl} alt="" />
-            <p>{image.dateSubmitted}</p>
+            {/* <p>{image.dateSubmitted}</p> */}
           </li>
         )
-      })} */}
+      })}
       <div className="bottom-margin"></div>
     </div>
   )

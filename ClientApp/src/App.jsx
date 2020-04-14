@@ -79,7 +79,7 @@ export default class App extends Component {
           <Route exact path="/" component={HomePage}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/signup" component={Signup}></Route>
-          <Route exact path="/read" component={Read}></Route>
+          <Route exact path="/read/:id" component={Read}></Route>
           <Route exact path="/author" component={UploadAuthor}></Route>
           <Route exact path="/author/:id" component={UploadBook}></Route>
           <Route exact path="/book/:id" component={UploadPage}></Route>
