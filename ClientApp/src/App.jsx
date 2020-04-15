@@ -29,7 +29,7 @@ export default class App extends Component {
               <ul>
                 <img className="hamburger" src={Hamburger} alt="Hamburger" />
                 <li>
-                  <Link to="/home">Go Home</Link>
+                  <Link to="/">Go Home</Link>
                 </li>
                 {/* <li>
                   <Link to="/login">Login</Link>
@@ -48,7 +48,7 @@ export default class App extends Component {
           </nav>
           <div className="top-bar-border" />
           <div className="logo-container">
-            <Link to="/home">
+            <Link to="/">
               <img className="logo" src={Logo} alt="logo" />
             </Link>
           </div>
@@ -58,7 +58,7 @@ export default class App extends Component {
           <nav className="bottom-nav-container">
             <ul className="bottom-nav">
               <li>
-                <Link to="/home">
+                <Link to="/">
                   <img className="icons" src={HomeIcon} alt="Home Icon" />
                 </Link>
               </li>
@@ -76,7 +76,7 @@ export default class App extends Component {
           </nav>
         </footer>
         <Switch>
-          <Route exact path="/home" component={HomePage}></Route>
+          <Route exact path="/" component={HomePage}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/read/:id" component={Read}></Route>
