@@ -3,8 +3,8 @@ import FlipPage from 'react-flip-page'
 import '../flipBook.scss'
 
 const FlipBook = props => {
-  const { page } = props
-  console.log(page)
+  const { book } = props
+  // console.log(book)
 
   return (
     <>
@@ -16,11 +16,12 @@ const FlipBook = props => {
           showSwipeHint
           orientation="horizontal"
         >
-          <img className="pages" src={page.imageUrl} alt="First Page" />
+          {book.pages.map(page => (
+            <img className="pages" src={page.imageUrl} alt="First Page" />
+          ))}
         </FlipPage>
       </div>
     </>
   )
 }
-
 export default FlipBook

@@ -25,9 +25,7 @@ const Read = props => {
     return (
       <div>
         <div className="flip-book">
-          {book.pages.map(page => {
-            return <FlipBook page={page} />
-          })}
+          <FlipBook book={book} />
         </div>
       </div>
     )
