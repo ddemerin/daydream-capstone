@@ -11,7 +11,7 @@ const FlipBook = props => {
       <div className="flip-book-container">
         <FlipPage
           uncutPages
-          height="670"
+          height="850"
           width="responsive"
           showSwipeHint
           orientation="horizontal"

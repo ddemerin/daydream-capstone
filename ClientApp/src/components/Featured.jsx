@@ -7,20 +7,25 @@ const Featured = props => {
 
   return (
     <>
-      <div className="featured-book-container">
-        <div className="featured-book-box">
-          <div className="featured-book-border">
-            <a href={`/read/${book.id}`} className="featured-book-link">
-              <img src={book.pages[0].imageUrl} className="featured-book" />
-            </a>
+      <section className="featured-book-container">
+        <div className="featured-book-image-container">
+          <div className="featured-book-image-box">
+            <div className="featured-book-image-border">
+              <a href={`/read/${book.id}`} className="featured-book-image-link">
+                <img
+                  src={book.pages[0].imageUrl}
+                  className="featured-book-image"
+                />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="featured-book-writeup-container">
-        <div className="featured-book-writeup">
-          <p>{book.description}</p>
+        <div className="featured-book-writeup-container">
+          <article className="featured-book-writeup">
+            <p>{book.description}</p>
+          </article>
         </div>
-      </div>
+      </section>
     </>
   )
 }

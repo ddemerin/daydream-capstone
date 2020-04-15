@@ -1,14 +1,18 @@
 @import './variables.scss';
 
-.featured-book-container {
+main {
+  margin: 15vh 0 12vh 0;
+}
+
+.featured-book-image-container {
   display: flex;
   justify-content: center;
   align-self: center;
+  margin-top: 2rem;
   padding: 0;
-  margin-top: 15.5vh;
 }
 
-.featured-book-border {
+.featured-book-image-border {
   background-color: rgba(103, 148, 231, 0.589);
   border: 0.05rem solid rgb(120, 151, 209);
   border-top-left-radius: 0.25rem;
@@ -29,15 +33,78 @@
   border-bottom: 0.05rem solid black;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  width: 41.65vh;
+  width: 41.5vh;
   padding: 0 1rem 0 1rem;
 }
 
-.featured-book {
+.featured-book-image {
   border-radius: 0.25rem;
   box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
   height: 36vh;
   width: 25vh;
   margin: 0 2.5rem 1rem 2.5rem;
   z-index: -1;
+}
+
+@media (min-height: 856px) {
+  main {
+    margin: 13.5vh 0 12vh 0;
+  }
+
+  .featured-book-writeup {
+    width: 37.65vh;
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    margin-bottom: 13.5vh;
+  }
+
+  .featured-book-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+  }
+
+  .featured-book-image-border {
+    background-color: rgba(103, 148, 231, 0.589);
+    border: 0.05rem solid rgb(120, 151, 209);
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0;
+    padding-top: 1rem;
+    box-shadow: -5px -5px 5px rgba(75, 75, 82, 0.164);
+  }
+
+  .featured-book-image {
+    border-radius: 0.25rem;
+    box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
+    height: 40vh;
+    width: 28vh;
+    z-index: -1;
+  }
+
+  .featured-book-writeup-container {
+    display: flex;
+    margin-top: 3.35vh;
+    justify-content: center;
+  }
+
+  .featured-book-writeup {
+    background-color: rgba(241, 243, 246, 0.637);
+    border: 0.05rem solid black;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0.5rem;
+    width: 60vh;
+    padding: 10rem 1rem 0 1rem;
+  }
+
+  p {
+    justify-self: center;
+    align-self: center;
+  }
 }

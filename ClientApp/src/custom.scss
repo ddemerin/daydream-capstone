@@ -83,6 +83,7 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: 0;
+  z-index: 1000;
 }
 
 .icons {
@@ -92,6 +93,7 @@ footer {
   height: 8vh;
   padding: 0;
   margin: 0 0.5rem 1rem 0.5rem;
+  z-index: 1001;
 }
 
 .bottom-nav {
@@ -108,8 +110,8 @@ footer {
 }
 
 .search {
-  width: 60%;
-  height: 30px;
+  width: 50%;
+  height: 35px;
   border-radius: 0.5rem;
 }
 
@@ -145,48 +147,4 @@ footer {
   width: 255px;
   height: 35px;
   margin-top: 2rem;
-}
-
-@media (min-width: 992px) {
-  main {
-    display: flex;
-    justify-content: center;
-    margin-top: 6vh;
-  }
-
-  .featured-book-border {
-    background-color: rgba(103, 148, 231, 0.589);
-    border: 0.05rem solid rgb(120, 151, 209);
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0.25rem;
-    border-bottom-right-radius: 0;
-    padding-top: 1rem;
-    box-shadow: -5px -5px 5px rgba(75, 75, 82, 0.164);
-  }
-
-  .featured-book {
-    border-radius: 0.25rem;
-    box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
-    height: 50vh;
-    width: 50vh;
-    z-index: -1;
-  }
-
-  .featured-book-writeup-container {
-    display: flex;
-    margin-top: 15.5vh;
-    justify-content: center;
-  }
-
-  .featured-book-writeup {
-    background-color: rgba(241, 243, 246, 0.637);
-    border: 0.05rem solid black;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0.5rem;
-    width: 60vh;
-    padding: 0 1rem 0 1rem;
-  }
 }
