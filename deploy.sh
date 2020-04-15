@@ -1,8 +1,8 @@
-docker build -t daydream_capstone-image .
+docker build -t daydream-books-image .
 
-docker tag daydream_capstone-image registry.heroku.com/daydream_capstone/web
+docker tag daydream-books-image registry.heroku.com/daydream-books/web
 
 
-docker push registry.heroku.com/daydream_capstone/web
+docker push registry.heroku.com/daydream-books/web
 
-heroku container:release web -a daydream_capstone
+heroku container:release web -a daydream-books
