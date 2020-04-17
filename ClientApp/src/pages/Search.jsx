@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import '../search.scss'
 
 const Search = () => {
+  const [searchTerm, setSearchTerm] = useState('')
+
   return (
     <>
       <div className="search-container">
