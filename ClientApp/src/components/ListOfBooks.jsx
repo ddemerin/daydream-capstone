@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const Featured = props => {
+const ListOfBooks = props => {
   const { book } = props
   // console.log({ book })
 
@@ -29,4 +29,4 @@ const Featured = props => {
   )
 }
 
-export default Featured
+export default ListOfBooks
