@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import '../featuredBook.scss'
 
-const ListOfBooks = props => {
+const SearchResults = props => {
   const { book } = props
-  // console.log({ book })
+  console.log({ book })
 
   return (
     <>
@@ -12,10 +12,7 @@ const ListOfBooks = props => {
           <div className="featured-book-image-box">
             <div className="featured-book-image-border">
               <a href={`/read/${book.id}`} className="featured-book-image-link">
-                <img
-                  src={book.pages[0].imageUrl}
-                  className="featured-book-image"
-                />
+                <img src={book.imageUrl} className="featured-book-image" />
               </a>
             </div>
           </div>
@@ -30,4 +27,4 @@ const ListOfBooks = props => {
   )
 }
 
-export default ListOfBooks
+export default SearchResults

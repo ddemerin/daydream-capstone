@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Featured from '../components/Featured'
 import ListOfBooks from '../components/ListOfBooks'
-import '../featuredBook.scss'
 
 const HomePage = () => {
   const [book, setBook] = useState([])

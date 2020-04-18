@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../search.scss'
 import axios from 'axios'
 import ListOfBooks from '../components/ListOfBooks'
+import SearchResults from '../components/SearchResults'
 
 const Search = () => {
   const [book, setBook] = useState([])
@@ -18,7 +19,7 @@ const Search = () => {
   }, [])
 
   const [searchTerm, setSearchTerm] = useState('')
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState({ pages: [] })
 
   const searchForBooks = async () => {
     const respSearch = await axios.get(
@@ -44,12 +45,11 @@ const Search = () => {
         <ul className="list-of-books">
           {results.length > 0
             ? results.map(results => {
-                return <ListOfBooks book={results} />
+                return <SearchResults book={results} />
               })
             : book.map(book => {
                 return <ListOfBooks book={book} />
               })}
-          }
         </ul>
       </section>
     </>
