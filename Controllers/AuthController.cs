@@ -27,6 +27,29 @@ namespace daydream_capstone.Controllers
             _context = context;
         }
 
+        private object CreateJWT(User user)
+        {
+            var expirationTime = DateTime.UtcNow.AddHours(10);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim("id", user.Id.ToString()),
+                    new Claim("email", user.Email),
+                    new Claim("name", user.FullName)
+                }),
+                Expires = expirationTime,
+                SigningCredentials = new SigningCredentials(
+                      new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SOME REALLY LONG STRING")),
+                      SecurityAlgorithms.HmacSha256Signature
+                  )
+            };
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
+
+            return token;
+        }
+
         [HttpPost("signup")]
         public async Task<ActionResult> SignUpUser(NewUser newUser)
         {
@@ -57,25 +80,35 @@ namespace daydream_capstone.Controllers
             await _context.SaveChangesAsync();
 
             // generate a JWT
-            var expirationTime = DateTime.UtcNow.AddHours(10);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim("id", user.Id.ToString()),
-                    new Claim("email", user.Email),
-                    new Claim("name", user.FullName)
-                }),
-                Expires = expirationTime,
-                SigningCredentials = new SigningCredentials(
-                      new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SOME REALLY LONG STRING")),
-                      SecurityAlgorithms.HmacSha256Signature
-                  )
-            };
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
+            user.HashedPassword = null;
+            return Ok(new { Token = CreateJWT(user), user = user });
+        }
 
-            return Ok(token);
+
+        [HttpPost("login")]
+        public async Task<ActionResult> Login(UserLogin userLogin)
+        {
+            // find the user
+            var user = await _context.Users.FirstOrDefaultAsync(user => user.Email.ToLower() == userLogin.Email.ToLower());
+            if (user == null)
+            {
+                return BadRequest("User does not exist!");
+            }
+
+            // validate the password
+            var results = new PasswordHasher<User>().VerifyHashedPassword(user, user.HashedPassword, userLogin.Password);
+
+            if (results == PasswordVerificationResult.Success)
+            {
+                // create the token
+                user.HashedPassword = null;
+                return Ok(new { Token = CreateJWT(user), user = user });
+            }
+            else
+            {
+                return BadRequest("Incorrect Password!");
+            }
+
         }
     }
 }
