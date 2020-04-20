@@ -7,7 +7,7 @@ const Signup = () => {
   const [password, setPassword] = useState('')
 
   const sendNewUserToApi = async () => {
-    const resp = await axios.post('/auth/signup', {
+    const resp = await axios.post('/auth/signup/', {
       fullName: fullName,
       email: email,
       password: password,
