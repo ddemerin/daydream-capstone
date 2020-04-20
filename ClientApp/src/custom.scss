@@ -6,12 +6,17 @@
 
 html {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
   font: 100% Roboto;
   background-image: url(./images/background_texture.jpg);
-  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 header {
@@ -83,7 +88,7 @@ footer {
   z-index: 1000;
 }
 
-.icons {
+.icon {
   position: relative;
   bottom: 2vh;
   width: 8vh;
@@ -131,4 +136,26 @@ footer {
   width: 255px;
   height: 35px;
   margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+  .icon {
+    position: relative;
+    bottom: 2vh;
+    width: 8vh;
+    height: 8vh;
+    padding: 0;
+    margin: 0 0.5rem 1rem 0.5rem;
+    z-index: 1001;
+  }
+
+  .home {
+    position: relative;
+    left: 25rem;
+  }
+
+  .write {
+    position: relative;
+    right: 26rem;
+  }
 }

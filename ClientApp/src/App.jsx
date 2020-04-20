@@ -59,17 +59,25 @@ export default class App extends Component {
             <ul className="bottom-nav">
               <li>
                 <Link to="/">
-                  <img className="icons" src={HomeIcon} alt="Home Icon" />
+                  <img className="home icon" src={HomeIcon} alt="Home Icon" />
                 </Link>
               </li>
               <li>
                 <Link to="/search">
-                  <img className="icons" src={SearchIcon} alt="Search Icon" />
+                  <img
+                    className="search icon"
+                    src={SearchIcon}
+                    alt="Search Icon"
+                  />
                 </Link>
               </li>
               <li>
                 <Link to="/author">
-                  <img className="icons" src={WriteIcon} alt="Write Icon" />
+                  <img
+                    className="write icon"
+                    src={WriteIcon}
+                    alt="Write Icon"
+                  />
                 </Link>
               </li>
             </ul>
