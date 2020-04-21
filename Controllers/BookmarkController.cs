@@ -14,7 +14,7 @@ namespace daydream_capstone.Controllers
         [HttpPost("{bookId")]
         public async Task<ActionResult> BookmarkBookForUser(int bookId)
         {
-
+            return Ok();
         }
     }
 }

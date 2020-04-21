@@ -11,6 +11,7 @@ namespace daydream_capstone.Models
         public DbSet<Page> Pages { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Bookmark> Bookmarks { get; set; }
 
 
         private string ConvertPostConnectionToConnectionString(string connection)
