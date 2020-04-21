@@ -14,8 +14,10 @@ import HomeIcon from './images/homeIcon4x4.png'
 import SearchIcon from './images/searchIcon4x4.png'
 import WriteIcon from './images/writeIcon4x4.png'
 import Logo from './images/Daydream_LOGO.png'
+import MyProfile from './pages/MyProfile'
 import './custom.scss'
 import './navMenu.scss'
+import { Redirect } from 'react-router'
 
 export default class App extends Component {
   static displayName = App.name
@@ -58,17 +60,17 @@ export default class App extends Component {
           <nav className="bottom-nav-container">
             <ul className="bottom-nav">
               <li>
-                <Link to="/">
-                  <img className="home icon" src={HomeIcon} alt="Home Icon" />
-                </Link>
-              </li>
-              <li>
                 <Link to="/search">
                   <img
                     className="search icon"
                     src={SearchIcon}
                     alt="Search Icon"
                   />
+                </Link>
+              </li>
+              <li>
+                <Link to="/">
+                  <img className="home icon" src={HomeIcon} alt="Home Icon" />
                 </Link>
               </li>
               <li>
@@ -84,15 +86,36 @@ export default class App extends Component {
           </nav>
         </footer>
         <Switch>
-          <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/login" component={Login}></Route>
-          <Route exact path="/signup" component={Signup}></Route>
-          <Route exact path="/read/:id" component={Read}></Route>
-          <Route exact path="/author" component={UploadAuthor}></Route>
-          <Route exact path="/author/:id" component={UploadBook}></Route>
-          <Route exact path="/book/:id" component={UploadPage}></Route>
-          <Route exact path="/search" component={Search}></Route>
-          <Route path="*" component={NotFound}></Route>
+          <Route
+            exact
+            path="/"
+            render={() =>
+              localStorage.getItem('token') ? (
+                <HomePage />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route
+            exact
+            path="/my-profile"
+            render={() =>
+              localStorage.getItem('token') ? (
+                <MyProfile />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route exact path="/read/:id" component={Read} />
+          <Route exact path="/author" component={UploadAuthor} />
+          <Route exact path="/author/:id" component={UploadBook} />
+          <Route exact path="/book/:id" component={UploadPage} />
+          <Route exact path="/search" component={Search} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
     )

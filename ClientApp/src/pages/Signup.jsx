@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const Signup = () => {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [shouldRedirect, setShouldRedirect] = useState(false)
 
   const sendNewUserToApi = async () => {
     const resp = await axios.post('/auth/signup/', {
@@ -13,13 +15,20 @@ const Signup = () => {
       password: password,
     })
     console.log(resp.data)
-    localStorage.setItem('token', resp.data.token)
+    if (resp.status === 200) {
+      localStorage.setItem('token', resp.data.token)
+      setShouldRedirect(true)
+    }
+  }
+
+  if (shouldRedirect) {
+    return <Redirect to="/my-profile" />
   }
 
   return (
     <>
       <div className="login-information-container">
-        <h1 class="login-title">Create a new Daydream Account</h1>
+        <h1 className="login-title">Create a new Daydream Account</h1>
         <section>
           <input
             type="text"
