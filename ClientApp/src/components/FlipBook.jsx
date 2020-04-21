@@ -1,6 +1,5 @@
 import React from 'react'
 import FlipPage from 'react-flip-page'
-import '../flipBook.scss'
 
 const FlipBook = props => {
   const { book } = props
