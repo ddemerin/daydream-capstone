@@ -13,6 +13,7 @@ const Signup = () => {
       password: password,
     })
     console.log(resp.data)
+    localStorage.setItem('token', resp.data.token)
   }
 
   return (

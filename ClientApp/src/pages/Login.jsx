@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <>
       <div className="login-information-container">
-        <h1 class="login-title">Login to your Daydream Account</h1>
+        <h1 className="login-title">Login to your Daydream Account</h1>
         <section>
           <h2>Test Authentication</h2>
           <button onClick={getSecretInformation}>Test</button>

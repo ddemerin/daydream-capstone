@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace daydream_capstone.Controllers
@@ -20,10 +21,12 @@ namespace daydream_capstone.Controllers
     public class AuthController : ControllerBase
     {
 
-        private DatabaseContext _context;
+        readonly private DatabaseContext _context;
+        readonly private string JWT_KEY;
 
-        public AuthController(DatabaseContext context)
+        public AuthController(DatabaseContext context, IConfiguration config)
         {
+            JWT_KEY = config["JWT_KEY"];
             _context = context;
         }
 
@@ -40,7 +43,7 @@ namespace daydream_capstone.Controllers
                 }),
                 Expires = expirationTime,
                 SigningCredentials = new SigningCredentials(
-                      new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SOME REALLY LONG STRING")),
+                      new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JWT_KEY)),
                       SecurityAlgorithms.HmacSha256Signature
                   )
             };
@@ -51,7 +54,7 @@ namespace daydream_capstone.Controllers
         }
 
         [HttpPost("signup")]
-        public async Task<ActionResult> SignUpUser(NewUser newUser)
+        public async Task<ActionResult> SignUpNewUser(NewUser newUser)
         {
             // validate user data
             if (newUser.Password.Length < 7)
@@ -80,7 +83,6 @@ namespace daydream_capstone.Controllers
             await _context.SaveChangesAsync();
 
             // generate a JWT
-            user.HashedPassword = null;
             return Ok(new { Token = CreateJWT(user), user = user });
         }
 
@@ -101,7 +103,6 @@ namespace daydream_capstone.Controllers
             if (results == PasswordVerificationResult.Success)
             {
                 // create the token
-                user.HashedPassword = null;
                 return Ok(new { Token = CreateJWT(user), user = user });
             }
             else
