@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
+  const [shouldRedirect, setShouldRedirect] = useState(false)
 
   const logUserToApi = async () => {
     const resp = await axios.post('/auth/login', {
