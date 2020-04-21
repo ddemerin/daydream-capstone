@@ -29,7 +29,7 @@ namespace daydream_capstone.Controllers
             // grab id from JWT
             var userId = int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "id").Value);
             // query the database for the user with that id
-            var user = await _context.Users.FirstOrDefaultAsync(f => f.Id == userId);
+            var user = await _context.Users.Include(i => i.Bookmarks).ThenInclude(i => i.Book).ThenInclude(i => i.Pages).FirstOrDefaultAsync(f => f.Id == userId);
             // return user's profile
             return Ok(user);
         }

@@ -23,10 +23,9 @@ namespace daydream_capstone.Controllers
         [HttpGet("books")]
         public async Task<ActionResult> SearchBooks(string searchTerm)
         {
-            var results = _context.Books.Where(b => b.Title.ToLower().Contains(searchTerm.ToLower()));
-            var pages = results.Include(p => p.Pages);
+            var results = _context.Books.Include(i => i.Pages).Where(b => b.Title.ToLower().Contains(searchTerm.ToLower()));
 
-            return Ok(await pages.ToListAsync());
+            return Ok(await results.ToListAsync());
         }
     }
 }
