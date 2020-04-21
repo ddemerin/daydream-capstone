@@ -111,10 +111,30 @@ export default class App extends Component {
             }
           />
           <Route exact path="/read/:id" component={Read} />
-          <Route exact path="/author" component={UploadAuthor} />
+          <Route
+            exact
+            path="/author"
+            render={() =>
+              localStorage.getItem('token') ? (
+                <UploadAuthor />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
           <Route exact path="/author/:id" component={UploadBook} />
           <Route exact path="/book/:id" component={UploadPage} />
-          <Route exact path="/search" component={Search} />
+          <Route
+            exact
+            path="/search"
+            render={() =>
+              localStorage.getItem('token') ? (
+                <Search />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

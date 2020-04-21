@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import '../login.scss'
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('')
@@ -48,6 +49,7 @@ const Login = () => {
         <button onClick={logUserToApi} className="login-button">
           Login!
         </button>
+        <Link to="/signup">Don't have an account?</Link>
       </div>
     </>
   )
