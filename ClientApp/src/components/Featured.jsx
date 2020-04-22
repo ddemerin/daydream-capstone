@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Featured = () => {
-  const [featured, setFeatured] = useState([])
-  console.log(featured)
-
-  const getRandomBook = async () => {
-    const resp = await axios.get('/api/book')
-    console.log(resp.data)
-    const randomize = Math.floor(Math.random() * resp.data.length)
-    setFeatured(resp.data[randomize])
-  }
-
-  useEffect(() => {
-    getRandomBook()
-  }, [])
+const Featured = props => {
+  const { featured } = props
 
   return (
     <>

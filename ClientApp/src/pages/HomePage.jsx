@@ -5,12 +5,15 @@ import ListOfBooks from '../components/ListOfBooks'
 
 const HomePage = () => {
   const [book, setBook] = useState([])
+  const [featured, setFeatured] = useState({ pages: [{}] })
   console.log(book)
 
   const getBookData = async () => {
     const resp = await axios.get(`api/book/`)
     setBook(resp.data)
     console.log(resp.data)
+    const randomize = Math.floor(Math.random() * resp.data.length)
+    setFeatured(resp.data[randomize])
   }
 
   useEffect(() => {
@@ -20,7 +23,7 @@ const HomePage = () => {
   return (
     <>
       <main>
-        <Featured />
+        <Featured featured={featured} />
         <ul>
           {book.map(book => {
             return <ListOfBooks book={book} />
