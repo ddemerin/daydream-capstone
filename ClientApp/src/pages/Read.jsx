@@ -19,7 +19,7 @@ const Read = props => {
 
   useEffect(() => {
     getBookData()
-  }, [])
+  })
   console.log(book)
 
   const saveBookForLater = async () => {
@@ -32,6 +32,7 @@ const Read = props => {
         },
       }
     )
+    console.log(resp.data)
   }
 
   if (book) {

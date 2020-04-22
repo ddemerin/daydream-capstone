@@ -31,14 +31,14 @@ export default class App extends Component {
               <ul>
                 <img className="hamburger" src={Hamburger} alt="Hamburger" />
                 <li>
-                  <Link to="/">Go Home</Link>
+                  <Link to="/my-profile">Profile</Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link to="/login">Login</Link>
                 </li>
                 <li>
                   <Link to="/signup">Sign Up</Link>
-                </li> */}
+                </li>
                 <li>
                   <Link to="/search">Search</Link>
                 </li>

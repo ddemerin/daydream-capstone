@@ -20,6 +20,7 @@ const HomePage = () => {
   return (
     <>
       <main>
+        <Featured />
         <ul>
           {book.map(book => {
             return <ListOfBooks book={book} />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import '../profile.scss'
 
 const MyProfile = () => {
   const [profile, setProfile] = useState({})
@@ -22,7 +23,6 @@ const MyProfile = () => {
   return (
     <main>
       <h1>{profile.fullName}'s Profile</h1>
-      <h2>{profile.email}</h2>
       <section className="user-favorites">
         <h3>Favorites</h3>
         {profile.bookmarks && (
@@ -31,7 +31,7 @@ const MyProfile = () => {
               return (
                 <li>
                   <h4>{bookmark.book.title}</h4>
-                  <img src={bookmark.book.pages[0].imageUrl} />
+                  <img src={bookmark.book.pages[0].imageUrl} alt="Book Cover" />
                 </li>
               )
             })}

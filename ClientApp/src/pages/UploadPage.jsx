@@ -25,7 +25,8 @@ export const UploadPage = props => {
         console.log(images)
         setImages(prevImages => [resp.data, ...prevImages])
       })
-  }, [])
+  })
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   const loadPages = async () => {
@@ -36,7 +37,7 @@ export const UploadPage = props => {
 
   useEffect(() => {
     loadPages()
-  }, [])
+  })
 
   return (
     <div className="upload-container">

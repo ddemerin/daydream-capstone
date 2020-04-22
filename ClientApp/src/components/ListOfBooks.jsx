@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import '../featuredBook.scss'
 
 const ListOfBooks = props => {
@@ -15,6 +15,7 @@ const ListOfBooks = props => {
                 <img
                   src={book.pages[0].imageUrl}
                   className="featured-book-image"
+                  alt="Book Cover"
                 />
               </a>
             </div>

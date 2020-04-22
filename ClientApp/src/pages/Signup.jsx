@@ -29,7 +29,7 @@ const Signup = () => {
   return (
     <>
       <div className="login-information-container">
-        <h1 className="login-title">Create a new Daydream Account</h1>
+        <h1 className="login-title">Create an Account</h1>
         <section>
           <input
             type="text"

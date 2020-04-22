@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+main {
+  img {
+    height: 28vh;
+    width: 35vw;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

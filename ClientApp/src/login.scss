@@ -7,11 +7,15 @@
   top: 10rem;
   background-color: rgba(45, 110, 230, 0.76);
   margin: 0 2rem 0 2rem;
-  //   padding: 5rem 8.5rem 5rem 8.5rem;
+  padding-top: 1.5rem;
   border-top-left-radius: 5rem;
   border-top-right-radius: 5rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+
+  h1 {
+    font-size: 2rem;
+  }
 
   section,
   button {
@@ -26,6 +30,7 @@
   }
 
   a {
+    padding-top: 2rem;
     text-align: center;
   }
 }
