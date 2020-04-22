@@ -49,7 +49,10 @@ const Login = () => {
         <button onClick={logUserToApi} className="login-button">
           Login!
         </button>
-        <Link to="/signup">Don't have an account?</Link>
+        <aside>
+          <p>Don't have an account?</p>
+          <Link to="/signup">Sign up here!</Link>
+        </aside>
       </div>
     </>
   )

@@ -7,6 +7,7 @@ const HomePage = () => {
   const [book, setBook] = useState([])
   const [featured, setFeatured] = useState({ pages: [{}] })
   console.log(book)
+  console.log(featured)
 
   const getBookData = async () => {
     const resp = await axios.get(`api/book/`)
