@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace daydream_capstone.Controllers
 {
@@ -29,16 +30,26 @@ namespace daydream_capstone.Controllers
         {
             // get userId from user object
             var userId = int.Parse(User.Claims.FirstOrDefault(f => f.Type == "id").Value);
-            // create new bookmark
-            var bookmark = new Bookmark
+            var doesBookmarkExist = await _context.Bookmarks.FirstOrDefaultAsync(m => m.BookId == bookId && m.UserId == userId);
+            if (doesBookmarkExist != null)
             {
-                BookId = bookId,
-                UserId = userId,
-            };
-            // save to database
-            _context.Bookmarks.Add(bookmark);
-            await _context.SaveChangesAsync();
-            return Ok(bookmark);
+                _context.Bookmarks.Remove(doesBookmarkExist);
+                await _context.SaveChangesAsync();
+                return Ok(doesBookmarkExist);
+            }
+            else
+            {
+                // create new bookmark
+                var bookmark = new Bookmark
+                {
+                    BookId = bookId,
+                    UserId = userId,
+                };
+                // save to database
+                _context.Bookmarks.Add(bookmark);
+                await _context.SaveChangesAsync();
+                return Ok(bookmark);
+            }
         }
     }
 }

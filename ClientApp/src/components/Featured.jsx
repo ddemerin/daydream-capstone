@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Banner from '../images/Banner.png'
 import axios from 'axios'
 
 const Featured = props => {
@@ -7,7 +8,7 @@ const Featured = props => {
   return (
     <>
       <div className="featured-book-title">
-        <h1>{featured.title}</h1>
+        <img className="banner" src={Banner}></img>
       </div>
       <section className="featured-book-container">
         <div className="featured-book-image-container">
@@ -26,11 +27,7 @@ const Featured = props => {
             </div>
           </div>
         </div>
-        <div className="featured-book-writeup-container">
-          <article className="featured-book-writeup">
-            <p>{featured.description}</p>
-          </article>
-        </div>
+        <div className="featured-book-writeup-container"></div>
       </section>
     </>
   )
