@@ -57,6 +57,8 @@ li {
 
 .library-header {
   position: relative;
+  background: $header-background;
+  padding: 2rem 0 2rem 0;
   bottom: 20vh;
 }
 
@@ -90,7 +92,7 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: 0;
-  z-index: 6000;
+  z-index: 5000;
 }
 
 .icon {

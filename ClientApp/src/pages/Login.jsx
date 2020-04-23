@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Logo from '../images/Daydream_LOGO.png'
 import { Redirect, Link } from 'react-router-dom'
 import '../login.scss'
 
@@ -26,33 +27,35 @@ const Login = () => {
 
   return (
     <>
-      <div className="login-information-container">
-        <h1 className="login-title">Login to your Daydream Account</h1>
-        <section>
-          <input
-            type="text"
-            value={loginEmail}
-            onChange={e => setLoginEmail(e.target.value)}
-            className="email"
-            placeholder="Email"
-          />
-        </section>
-        <section>
-          <input
-            type="password"
-            value={loginPassword}
-            onChange={e => setLoginPassword(e.target.value)}
-            className="password"
-            placeholder="Password"
-          />
-        </section>
-        <button onClick={logUserToApi} className="login-button">
-          Login!
-        </button>
-        <aside>
-          <p>Don't have an account?</p>
-          <Link to="/signup">Sign up here!</Link>
-        </aside>
+      <div className="bg-container">
+        <div className="login-information-container">
+          <img className="logo" src={Logo} alt="logo" />
+          <section>
+            <input
+              type="text"
+              value={loginEmail}
+              onChange={e => setLoginEmail(e.target.value)}
+              className="email"
+              placeholder="Email"
+            />
+          </section>
+          <section>
+            <input
+              type="password"
+              value={loginPassword}
+              onChange={e => setLoginPassword(e.target.value)}
+              className="password"
+              placeholder="Password"
+            />
+          </section>
+          <button onClick={logUserToApi} className="login-button">
+            Login!
+          </button>
+          <aside>
+            <p>Don't have an account?</p>
+            <Link to="/signup">Sign up here!</Link>
+          </aside>
+        </div>
       </div>
     </>
   )
