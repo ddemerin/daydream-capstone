@@ -1,15 +1,11 @@
 @import './variables.scss';
 
-main {
-  margin: 15vh 0 12vh 0;
+.listofbooks-book-container {
+  position: relative;
+  bottom: 12vh;
 }
 
-.banner {
-  width: 100%;
-  height: 75%;
-}
-
-.featured-book-image-container {
+.listofbooks-book-image-container {
   display: flex;
   justify-content: center;
   align-self: center;
@@ -17,7 +13,7 @@ main {
   padding: 0;
 }
 
-.featured-book-image-border {
+.listofbooks-book-image-border {
   background-color: rgba(103, 148, 231, 0.589);
   border: 0.05rem solid rgb(120, 151, 209);
   border-top-left-radius: 0.25rem;
@@ -26,12 +22,12 @@ main {
   box-shadow: -5px -5px 5px rgba(75, 75, 82, 0.164);
 }
 
-.featured-book-writeup-container {
+.listofbooks-book-writeup-container {
   display: flex;
   justify-content: center;
 }
 
-.featured-book-writeup {
+.listofbooks-book-writeup {
   background-color: rgba(241, 243, 246, 0.637);
   border-left: 0.05rem solid black;
   border-right: 0.05rem solid black;
@@ -42,7 +38,7 @@ main {
   padding: 0 1rem 0 1rem;
 }
 
-.featured-book-image {
+.listofbooks-book-image {
   border-radius: 0.25rem;
   box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
   height: 36vh;
@@ -56,7 +52,7 @@ main {
     margin: 13.5vh 0 12vh 0;
   }
 
-  .featured-book-writeup {
+  .listofbooks-book-writeup {
     width: 37.65vh;
   }
 }
@@ -66,13 +62,13 @@ main {
     margin-bottom: 13.5vh;
   }
 
-  .featured-book-container {
+  .listofbooks-book-container {
     display: flex;
     justify-content: center;
     margin-top: 1vh;
   }
 
-  .featured-book-image-border {
+  .listofbooks-book-image-border {
     background-color: rgba(103, 148, 231, 0.589);
     border: 0.05rem solid rgb(120, 151, 209);
     border-top-left-radius: 0.25rem;
@@ -83,7 +79,7 @@ main {
     box-shadow: -5px -5px 5px rgba(75, 75, 82, 0.164);
   }
 
-  .featured-book-image {
+  .listofbooks-book-image {
     border-radius: 0.25rem;
     box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
     height: 40vh;
@@ -91,13 +87,13 @@ main {
     z-index: -1;
   }
 
-  .featured-book-writeup-container {
+  .listofbooks-book-writeup-container {
     display: flex;
     margin-top: 3.35vh;
     justify-content: center;
   }
 
-  .featured-book-writeup {
+  .listofbooks-book-writeup {
     background-color: rgba(241, 243, 246, 0.637);
     border: 0.05rem solid black;
     border-top-left-radius: 0rem;

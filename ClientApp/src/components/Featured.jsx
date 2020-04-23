@@ -29,7 +29,9 @@ const Featured = props => {
             </div>
           </div>
         </div>
-        <div className="featured-book-writeup-container"></div>
+        <div className="featured-book-writeup-container">
+          <h3>{featured.title}</h3>
+        </div>
       </section>
       <img className="clouds" src={Clouds} alt="Background Clouds" />
     </>

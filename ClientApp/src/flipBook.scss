@@ -1,4 +1,6 @@
 .flip-book-container {
+  position: fixed;
+  z-index: 1000;
   margin-top: 0rem;
   height: 100%;
   width: 100%;
@@ -10,9 +12,9 @@
 }
 
 .bookmark {
-  position: relative;
-  left: 35vw;
-  bottom: 5px;
+  position: absolute;
+  left: 32vw;
+  bottom: 4rem;
   z-index: 1000;
 }
 

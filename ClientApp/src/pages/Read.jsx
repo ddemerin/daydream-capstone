@@ -43,7 +43,6 @@ const Read = props => {
         </section>
         {localStorage.getItem('token') ? (
           <section className="bookmark">
-            Like this trail?
             <button onClick={saveBookForLater}>bookmark for later</button>
           </section>
         ) : (

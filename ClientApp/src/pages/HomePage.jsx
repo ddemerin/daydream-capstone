@@ -25,6 +25,9 @@ const HomePage = () => {
     <>
       <main>
         <Featured featured={featured} />
+        <section className="library-header">
+          <h1>DAYDREAM LIBRARY</h1>
+        </section>
         <ul>
           {book.map(book => {
             return <ListOfBooks book={book} />

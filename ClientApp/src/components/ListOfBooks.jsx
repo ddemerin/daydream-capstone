@@ -7,22 +7,25 @@ const ListOfBooks = props => {
 
   return (
     <>
-      <section className="featured-book-container">
-        <div className="featured-book-image-container">
-          <div className="featured-book-image-box">
-            <div className="featured-book-image-border">
-              <a href={`/read/${book.id}`} className="featured-book-image-link">
+      <section className="listofbooks-book-container">
+        <div className="listofbooks-book-image-container">
+          <div className="listofbooks-book-image-box">
+            <div className="listofbooks-book-image-border">
+              <a
+                href={`/read/${book.id}`}
+                className="listofbooks-book-image-link"
+              >
                 <img
                   src={book.pages[0].imageUrl}
-                  className="featured-book-image"
+                  className="listofbooks-book-image"
                   alt="Book Cover"
                 />
               </a>
             </div>
           </div>
         </div>
-        <div className="featured-book-writeup-container">
-          <article className="featured-book-writeup">
+        <div className="listofbooks-book-writeup-container">
+          <article className="listofbooks-book-writeup">
             <p>{book.description}</p>
           </article>
         </div>
