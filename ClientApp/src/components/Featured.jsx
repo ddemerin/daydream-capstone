@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Banner from '../images/Banner.png'
+import '../featuredBook.scss'
 import axios from 'axios'
 
 const Featured = props => {

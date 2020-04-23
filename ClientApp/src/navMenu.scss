@@ -9,11 +9,11 @@
 }
 
 .navBG {
-  height: 13vh;
+  height: 12.5vh;
   width: 13.5vh;
   position: absolute;
   bottom: -2vh;
-  left: -0.5vh;
+  left: -0.25vh;
   z-index: -1;
 }
 
@@ -23,7 +23,7 @@
   background: $nav-background;
   color: $color;
   -webkit-clip-path: circle(24px at 30px 24px);
-  clip-path: circle(28px at 6.25vh 6vh);
+  clip-path: circle(22px at 6.25vh 6vh);
   transition: -webkit-clip-path $transition * 0.75, clip-path $transition/2;
 
   &:hover,
