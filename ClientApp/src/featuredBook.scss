@@ -18,6 +18,15 @@ main {
   z-index: -2;
 }
 
+.clouds {
+  position: relative;
+  width: 135vw;
+  height: 40vh;
+  bottom: 27vh;
+  right: 20vw;
+  z-index: -3;
+}
+
 .featured-book-image-container {
   display: flex;
   justify-content: center;

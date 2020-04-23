@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Banner from '../images/Banner.png'
+import Clouds from '../images/FeaturedClouds.png'
 import '../featuredBook.scss'
 import axios from 'axios'
 
@@ -30,6 +31,7 @@ const Featured = props => {
         </div>
         <div className="featured-book-writeup-container"></div>
       </section>
+      <img className="clouds" src={Clouds} alt="Background Clouds" />
     </>
   )
 }
