@@ -19,12 +19,11 @@ body {
 }
 
 header {
-  background-color: $nav-background;
+  background-color: $header-background;
   position: fixed;
   top: 0px;
   width: 100%;
   height: 10vh;
-  padding-top: 1rem;
 }
 
 ul {
@@ -36,8 +35,9 @@ ul {
   width: 30vh;
   height: 15vh;
   position: absolute;
-  top: -0.5vh;
+  top: -2.5vh;
   right: 0;
+  z-index: -1;
 }
 
 li {
@@ -76,7 +76,7 @@ p {
 }
 
 footer {
-  background-color: $nav-background;
+  background-color: $header-background;
   position: fixed;
   bottom: 0;
   height: 8.5vh;

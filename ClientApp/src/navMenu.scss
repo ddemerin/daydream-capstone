@@ -1,20 +1,29 @@
 @import './variables.scss';
 
 .hamburger {
-  height: 9vh;
-  width: 10vh;
+  height: 4vh;
+  width: 5vh;
   position: relative;
-  right: 0.5vh;
-  bottom: 4vh;
+  left: 1.75vw;
+  top: 0.75vh;
+}
+
+.navBG {
+  height: 13vh;
+  width: 13.5vh;
+  position: absolute;
+  bottom: -2vh;
+  left: -0.5vh;
+  z-index: -1;
 }
 
 .top-nav {
-  height: 500px;
+  height: 600px;
   width: 600px;
   background: $nav-background;
   color: $color;
   -webkit-clip-path: circle(24px at 30px 24px);
-  clip-path: circle(42px at 6vh 3vh);
+  clip-path: circle(28px at 6.25vh 6vh);
   transition: -webkit-clip-path $transition * 0.75, clip-path $transition/2;
 
   &:hover,

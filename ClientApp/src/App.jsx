@@ -10,6 +10,7 @@ import Search from './pages/Search'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import Hamburger from './images/Hamburger.png'
+import NavBG from './images/NavBarContainer.png'
 import HomeIcon from './images/homeIcon4x4.png'
 import SearchIcon from './images/searchIcon4x4.png'
 import WriteIcon from './images/writeIcon4x4.png'
@@ -49,6 +50,9 @@ export default class App extends Component {
             </div>
           </nav>
           <div className="top-bar-border" />
+          <div className="nav-conatiner">
+            <img className="navBG" src={NavBG} alt="Nav Button BG" />
+          </div>
           <div className="logo-container">
             <Link to="/">
               <img className="logo" src={Logo} alt="logo" />
