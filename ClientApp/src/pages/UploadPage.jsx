@@ -30,14 +30,14 @@ export const UploadPage = props => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   const loadPages = async () => {
-    const resp = await axios.get(`/api/page`)
+    const resp = await axios.get(`/api/book/${bookId}/page`)
     setImages(resp.data)
     console.log(resp.data)
   }
 
   useEffect(() => {
     loadPages()
-  })
+  }, [])
 
   return (
     <div className="upload-container">

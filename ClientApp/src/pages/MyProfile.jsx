@@ -34,16 +34,16 @@ const MyProfile = () => {
           <ul className="favorite-books-container">
             {profile.bookmarks.map(bookmark => {
               return (
-                <a href={`/read/${bookmark.book.id}`}>
-                  <li>
+                <li>
+                  <a href={`/read/${bookmark.book.id}`}>
                     <img
                       className="favorite-books"
                       src={bookmark.book.pages[0].imageUrl}
                       alt="Book Cover"
                     />
                     <p>{bookmark.book.title}</p>
-                  </li>
-                </a>
+                  </a>
+                </li>
               )
             })}
           </ul>
