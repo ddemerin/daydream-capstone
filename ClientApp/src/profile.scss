@@ -53,8 +53,12 @@ main {
   }
 
   .favorite-books {
-    margin: 2rem 0 0 2.25rem;
+    margin: 2rem 0 0 1.25rem;
     height: 12rem;
     width: 8rem;
+
+    a {
+      padding: 0;
+    }
   }
 }
