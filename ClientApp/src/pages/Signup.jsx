@@ -61,9 +61,11 @@ const Signup = () => {
               placeholder="Password"
             />
           </section>
-          <button onClick={sendNewUserToApi} className="login-button">
-            Sign up!
-          </button>
+          <div className="button-container">
+            <button onClick={sendNewUserToApi} className="signup-button">
+              Sign up!
+            </button>
+          </div>
           <Link to="/login">Have an account?</Link>
         </div>
       </div>

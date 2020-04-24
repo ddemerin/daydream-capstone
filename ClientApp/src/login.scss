@@ -75,8 +75,19 @@
   overflow: none;
 }
 
-.login-button {
-  width: 60px;
-  height: 35px;
-  margin-top: 2rem;
+.button-container {
+  display: flex;
+  justify-content: center;
+
+  .login-button {
+    width: 60px;
+    height: 35px;
+    margin: 2rem 0 0 0;
+  }
+
+  .signup-button {
+    width: 80px;
+    height: 35px;
+    margin: 2rem 0 0 0;
+  }
 }

@@ -19,7 +19,7 @@ const Read = props => {
 
   useEffect(() => {
     getBookData()
-  })
+  }, [])
   console.log(book)
 
   const saveBookForLater = async () => {

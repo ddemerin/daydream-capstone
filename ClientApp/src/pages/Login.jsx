@@ -50,9 +50,11 @@ const Login = () => {
               placeholder="Password"
             />
           </section>
-          <button onClick={logUserToApi} className="login-button">
-            Login!
-          </button>
+          <div className="button-container">
+            <button onClick={logUserToApi} className="login-button">
+              Login!
+            </button>
+          </div>
           <aside>
             <p>Don't have an account?</p>
             <Link to="/signup">Sign up here!</Link>
