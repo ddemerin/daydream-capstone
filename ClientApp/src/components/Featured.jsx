@@ -10,7 +10,7 @@ const Featured = props => {
   return (
     <>
       <div className="featured-book-title">
-        <img className="banner" src={Banner}></img>
+        <img className="banner" src={Banner} alt="Featured Book Banner"></img>
       </div>
       <section className="featured-book-container">
         <div className="featured-book-image-container">

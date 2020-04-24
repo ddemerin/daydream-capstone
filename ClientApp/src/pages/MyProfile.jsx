@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Banner from '../images/Banner.png'
 import axios from 'axios'
 import '../profile.scss'
 
@@ -22,16 +23,24 @@ const MyProfile = () => {
 
   return (
     <main>
-      <h1>{profile.fullName}'s Profile</h1>
+      <img className="banner" src={Banner} alt="Profile Banner" />
+      <h1 className="profile-name">{profile.fullName}</h1>
+      <div className="user-portrait"></div>
       <section className="user-favorites">
-        <h3>Favorites</h3>
+        <div className="favorites-header-container">
+          <h3>Favorites</h3>
+        </div>
         {profile.bookmarks && (
-          <ul>
+          <ul className="favorite-books-container">
             {profile.bookmarks.map(bookmark => {
               return (
                 <li>
-                  <h4>{bookmark.book.title}</h4>
-                  <img src={bookmark.book.pages[0].imageUrl} alt="Book Cover" />
+                  <img
+                    className="favorite-books"
+                    src={bookmark.book.pages[0].imageUrl}
+                    alt="Book Cover"
+                  />
+                  <p>{bookmark.book.title}</p>
                 </li>
               )
             })}
