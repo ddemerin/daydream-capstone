@@ -5,8 +5,9 @@
   flex-direction: column;
   position: relative;
   top: 10rem;
-  background-color: rgba(45, 110, 230, 0.76);
-  margin: 0 2rem 0 2rem;
+  left: 7vw;
+  background-color: rgba(45, 110, 230, 0.9);
+  width: 350px;
   padding-top: 1.5rem;
   border-top-left-radius: 5rem;
   border-top-right-radius: 5rem;
@@ -14,13 +15,26 @@
   border-bottom-right-radius: 1rem;
   z-index: 6000;
 
+  .logo-container {
+    position: relative;
+    right: 0vw;
+    height: 7rem;
+  }
+
+  img {
+    height: 10rem;
+    width: 20rem;
+  }
+
   h1 {
     font-size: 2rem;
   }
 
   section,
   button {
-    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
   }
 
   input {
@@ -37,13 +51,14 @@
   }
 
   p {
+    color: black;
     padding: 0.8rem 0.25rem 0 0;
     margin: 0;
   }
 
   a {
     padding: 0;
-    color: blue;
+    color: white;
     text-decoration: underline;
     text-align: center;
   }
@@ -61,7 +76,7 @@
 }
 
 .login-button {
-  width: 255px;
+  width: 60px;
   height: 35px;
   margin-top: 2rem;
 }

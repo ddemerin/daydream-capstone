@@ -29,7 +29,9 @@ const Login = () => {
     <>
       <div className="bg-container">
         <div className="login-information-container">
-          <img className="logo" src={Logo} alt="logo" />
+          <section className="logo-container">
+            <img className="logo" src={Logo} alt="logo" />
+          </section>
           <section>
             <input
               type="text"
