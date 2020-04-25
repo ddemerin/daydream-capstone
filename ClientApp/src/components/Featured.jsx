@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import Banner from '../images/Banner.png'
+import React from 'react'
+import Banner from '../images/Featured_Banner.png'
 import Clouds from '../images/FeaturedClouds.png'
 import '../featuredBook.scss'
-import axios from 'axios'
 
 const Featured = props => {
   const { featured } = props
