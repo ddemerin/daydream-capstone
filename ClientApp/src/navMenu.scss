@@ -4,8 +4,8 @@
   height: 4vh;
   width: 5vh;
   position: relative;
-  left: 1.75vw;
-  top: 0.75vh;
+  left: 0.5rem;
+  top: 0.25rem;
 }
 
 .navBG {
@@ -23,7 +23,7 @@
   background: $nav-background;
   color: $color;
   -webkit-clip-path: circle(24px at 30px 24px);
-  clip-path: circle(22px at 6.25vh 6vh);
+  clip-path: circle(3vh at 6.25vh 6vh);
   transition: -webkit-clip-path $transition * 0.75, clip-path $transition/2;
   position: relative;
   z-index: 20;

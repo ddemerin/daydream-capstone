@@ -8,8 +8,12 @@ const Featured = props => {
 
   return (
     <>
-      <div className="featured-book-title">
-        <img className="banner" src={Banner} alt="Featured Book Banner"></img>
+      <div className="featured-book-banner">
+        <img
+          className="featured-banner"
+          src={Banner}
+          alt="Featured Book Banner"
+        ></img>
       </div>
       <section className="featured-book-container">
         <div className="featured-book-image-container">
@@ -32,7 +36,9 @@ const Featured = props => {
           <h3>{featured.title}</h3>
         </div>
       </section>
-      <img className="clouds" src={Clouds} alt="Background Clouds" />
+      <div className="cloud-container">
+        <img className="clouds" src={Clouds} alt="Background Clouds" />
+      </div>
     </>
   )
 }

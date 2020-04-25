@@ -34,7 +34,7 @@
   border-bottom: 0.05rem solid black;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  width: 41.5vh;
+  width: 20.5rem;
   padding: 0 1rem 0 1rem;
 }
 
@@ -45,16 +45,6 @@
   width: 25vh;
   margin: 0 2.5rem 1rem 2.5rem;
   z-index: -1;
-}
-
-@media (min-height: 856px) {
-  main {
-    margin: 13.5vh 0 12vh 0;
-  }
-
-  .listofbooks-book-writeup {
-    width: 37.65vh;
-  }
 }
 
 @media (min-width: 992px) {
