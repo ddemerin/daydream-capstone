@@ -1,9 +1,5 @@
 @import './variables.scss';
 
-main {
-  margin: 16vh 0 0 0;
-}
-
 .featured-book-banner {
   display: flex;
   justify-content: center;
@@ -83,9 +79,24 @@ main {
   }
 }
 
-@media (min-width: 992px) {
-  main {
-    margin-bottom: 13.5vh;
+@media (min-width: 768px) {
+  .cloud-container {
+    position: relative;
+    left: 22vw;
+    width: 5vw;
+
+    .clouds {
+      width: 35rem;
+      height: auto;
+    }
+  }
+
+  .featured-banner {
+    position: relative;
+    bottom: 2vh;
+    width: auto;
+    height: 13vh;
+    z-index: 1;
   }
 
   .featured-book-container {
@@ -108,15 +119,9 @@ main {
   .featured-book-image {
     border-radius: 0.25rem;
     box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
-    height: 40vh;
-    width: 28vh;
+    height: 28vh;
+    width: 16vh;
     z-index: -1;
-  }
-
-  .featured-book-writeup-container {
-    display: flex;
-    margin-top: 3.35vh;
-    justify-content: center;
   }
 
   .featured-book-writeup {

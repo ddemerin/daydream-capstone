@@ -47,13 +47,10 @@
   z-index: -1;
 }
 
-@media (min-width: 992px) {
-  main {
-    margin-bottom: 13.5vh;
-  }
-
+@media (min-width: 768px) {
   .listofbooks-book-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 1vh;
   }
@@ -62,9 +59,7 @@
     background-color: rgba(103, 148, 231, 0.589);
     border: 0.05rem solid rgb(120, 151, 209);
     border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0.25rem;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 0.25rem;
     padding-top: 1rem;
     box-shadow: -5px -5px 5px rgba(75, 75, 82, 0.164);
   }
@@ -72,30 +67,45 @@
   .listofbooks-book-image {
     border-radius: 0.25rem;
     box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
-    height: 40vh;
-    width: 28vh;
+    height: 22vh;
+    width: 15vh;
     z-index: -1;
   }
 
   .listofbooks-book-writeup-container {
     display: flex;
-    margin-top: 3.35vh;
     justify-content: center;
   }
 
   .listofbooks-book-writeup {
     background-color: rgba(241, 243, 246, 0.637);
-    border: 0.05rem solid black;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0.5rem;
-    width: 60vh;
-    padding: 10rem 1rem 0 1rem;
+    border-left: 0.05rem solid black;
+    border-right: 0.05rem solid black;
+    border-bottom: 0.05rem solid black;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    width: 29.5vh;
+    padding: 0 1rem 0 1rem;
   }
 
   p {
+    font-size: 0.9rem;
     justify-self: center;
     align-self: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .listofbooks-book-image {
+    border-radius: 0.25rem;
+    box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
+    height: 36vh;
+    width: 25vh;
+    margin: 0 2.5rem 1rem 2.5rem;
+    z-index: -1;
+  }
+
+  .listofbooks-book-writeup {
+    width: 39.5vh;
   }
 }

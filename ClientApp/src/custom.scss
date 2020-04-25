@@ -55,6 +55,10 @@ li {
   z-index: 1;
 }
 
+.featured-container {
+  margin-top: 20vh;
+}
+
 .library-header {
   position: relative;
   background: $header-background;
@@ -114,15 +118,36 @@ footer {
   margin: 0;
 }
 
-@media (min-width: 992px) {
-  .icon {
-    position: relative;
-    bottom: 2vh;
-    width: 8vh;
-    height: 8vh;
+@media (min-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .featured-container {
+    margin: 0;
     padding: 0;
-    margin: 0 0.5rem 1rem 0.5rem;
-    z-index: 1001;
+    position: fixed;
+    left: 1.5rem;
+    top: 35vh;
+    width: 50vw;
+  }
+
+  .library-header {
+    position: relative;
+    background: $header-background;
+    padding: 1rem 1rem;
+  }
+
+  .library-container {
+    position: relative;
+    left: 52.5vw;
+    top: 5vh;
+    margin-top: 15rem;
+  }
+
+  .icon {
+    display: none;
   }
 
   .home {
@@ -133,5 +158,11 @@ footer {
   .write {
     position: relative;
     right: 26rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .library-container {
+    left: 60vw;
   }
 }

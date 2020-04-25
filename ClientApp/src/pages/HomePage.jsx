@@ -24,15 +24,19 @@ const HomePage = () => {
   return (
     <>
       <main>
-        <Featured featured={featured} />
-        <section className="library-header">
-          <h1 className="library-title">DAYDREAM LIBRARY</h1>
+        <section className="featured-container">
+          <Featured featured={featured} />
         </section>
-        <ul>
-          {book.map(book => {
-            return <ListOfBooks book={book} key={book.id} />
-          })}
-        </ul>
+        <section className="library-container">
+          <div className="library-header">
+            <h1 className="library-title">DAYDREAM LIBRARY</h1>
+          </div>
+          <ul>
+            {book.map(book => {
+              return <ListOfBooks book={book} key={book.id} />
+            })}
+          </ul>
+        </section>
       </main>
     </>
   )
