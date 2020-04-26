@@ -84,7 +84,7 @@ p {
 @media (min-width: 768px) {
   .library-container {
     display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-columns: 50% 50%;
   }
 
   .library-header {
@@ -99,4 +99,8 @@ p {
 }
 
 @media (min-width: 1024px) {
+  .library-container {
+    display: flex;
+    flex-direction: column;
+  }
 }

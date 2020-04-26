@@ -4,8 +4,8 @@
   height: 4vh;
   width: 5vh;
   position: relative;
-  left: 0.5rem;
-  top: 0.25rem;
+  left: 0.75rem;
+  top: 0.75rem;
 }
 
 .navBG {
@@ -34,22 +34,9 @@
     transition-timing-function: ease-out;
     transition-duration: 0.4s;
     -webkit-clip-path: circle(300px at 225px 24px);
-    clip-path: circle(300px at 10px 64px);
+    clip-path: circle(25vh at 6.25vh 9vh);
     position: relative;
     z-index: 500;
-  }
-}
-
-a {
-  display: block;
-  line-height: 50px;
-  padding: 0 20px;
-  color: inherit;
-  cursor: pointer;
-  user-select: none;
-
-  &:active {
-    background: #ffe082;
   }
 }
 
@@ -63,6 +50,19 @@ a {
   padding: 23px 20px;
   cursor: pointer;
   transform-origin: 32px 24px;
+
+  a {
+    display: block;
+    line-height: 50px;
+    padding: 0 20px;
+    color: inherit;
+    cursor: pointer;
+    user-select: none;
+
+    &:active {
+      background: #ffe082;
+    }
+  }
 
   div {
     position: relative;
@@ -84,18 +84,56 @@ a {
     }
   }
 
-  .icon {
-    display: none;
+  .profile-icon {
+    margin-top: 2rem;
+    height: 6vh;
+    width: 6vh;
+  }
+}
+
+@media (min-height: 736px) {
+  .hamburger {
+    left: 0.45rem;
+    top: 0.5rem;
+  }
+}
+
+@media (min-height: 850px) {
+  .hamburger {
+    left: 0.75rem;
+    top: 0.65rem;
+  }
+}
+
+@media (min-height: 900px) {
+  .hamburger {
+    left: 0.85rem;
+    top: 0.65rem;
   }
 }
 
 @media (min-width: 768px) {
+  .hamburger {
+    left: 0.75rem;
+    top: 0.75rem;
+  }
+
   .icons {
+    display: flex;
     position: relative;
-    bottom: 2vh;
-    width: 8vh;
-    height: 8vh;
+    width: 5vh;
+    height: 5vh;
     padding: 0;
     margin: 0.5rem 0;
   }
+
+  .top-nav {
+    &:hover,
+    :active {
+      clip-path: circle(300px at 10px 64px);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
 }

@@ -4,6 +4,7 @@ import Hamburger from '../images/Hamburger.png'
 import HomeIcon from '../images/homeIcon4x4.png'
 import SearchIcon from '../images/searchIcon4x4.png'
 import WriteIcon from '../images/writeIcon4x4.png'
+import ProfileIcon from '../images/Profile_Placeholder_Small.png'
 import '../navMenu.scss'
 
 const NavMenu = () => {
@@ -13,25 +14,31 @@ const NavMenu = () => {
         <ul>
           <img className="hamburger" src={Hamburger} alt="Hamburger" />
           <li>
-            <Link to="/my-profile">Profile</Link>
+            <Link to="/my-profile">
+              <img
+                className="profile-icon"
+                src={ProfileIcon}
+                alt="Profile Icon"
+              />
+            </Link>
           </li>
           <li>
             <Link to="/">
               <img className="icons" src={HomeIcon} alt="Home Icon" />
-              {/* <p>HOME</p> */}
             </Link>
           </li>
           <li>
             <Link to="/search">
               <img className="icons" src={SearchIcon} alt="Search Icon" />
-              {/* <p>SEARCH</p> */}
             </Link>
           </li>
           <li>
             <Link to="/author">
               <img className="icons" src={WriteIcon} alt="Write Icon" />
-              {/* <p>WRITE</p> */}
             </Link>
+          </li>
+          <li>
+            <Link to="/login">Logout</Link>
           </li>
         </ul>
       </div>
