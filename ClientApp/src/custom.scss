@@ -56,7 +56,7 @@ li {
 }
 
 .featured-container {
-  margin-top: 20vh;
+  margin-top: 17vh;
 }
 
 .library-header {
@@ -82,18 +82,9 @@ p {
 }
 
 @media (min-width: 768px) {
-  main {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .featured-container {
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    left: 1.5rem;
-    top: 25vh;
-    width: 50vw;
+  .library-container {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
   }
 
   .library-header {
@@ -102,20 +93,10 @@ p {
     padding: 1rem 1rem;
   }
 
-  .library-container {
-    position: relative;
-    left: 52.5vw;
-    top: 5vh;
-    margin-top: 10rem;
-  }
-
   .icon {
     display: none;
   }
 }
 
 @media (min-width: 1024px) {
-  .library-container {
-    left: 60vw;
-  }
 }

@@ -48,13 +48,6 @@
 }
 
 @media (min-width: 768px) {
-  .listofbooks-book-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 1vh;
-  }
-
   .listofbooks-book-image-border {
     background-color: rgba(103, 148, 231, 0.589);
     border: 0.05rem solid rgb(120, 151, 209);

@@ -80,22 +80,11 @@
 }
 
 @media (min-width: 768px) {
-  .cloud-container {
-    position: relative;
-    left: 22vw;
-    width: 5vw;
-
-    .clouds {
-      width: 35rem;
-      height: auto;
-    }
-  }
-
   .featured-banner {
     position: relative;
     bottom: 2vh;
     width: auto;
-    height: 13vh;
+    height: 20vh;
     z-index: 1;
   }
 
@@ -119,25 +108,17 @@
 
   .featured-book-image {
     border-radius: 0.25rem;
-    box-shadow: 5px 5px 3.5px rgb(75, 75, 82);
-    height: 28vh;
-    width: 16vh;
-    z-index: -1;
   }
 
-  .featured-book-writeup {
-    background-color: rgba(241, 243, 246, 0.637);
-    border: 0.05rem solid black;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0.5rem;
-    width: 60vh;
-    padding: 10rem 1rem 0 1rem;
+  .featured-book-writeup-container {
+    margin: 0 10rem;
   }
 
   p {
     justify-self: center;
     align-self: center;
   }
+}
+
+@media (min-width: 1024) {
 }

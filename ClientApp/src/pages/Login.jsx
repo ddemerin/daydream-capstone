@@ -7,9 +7,12 @@ import '../login.scss'
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
-  const [shouldRedirect, setShouldRedirect] = useState(false)
+  const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
+    shouldRedirect: false,
+  })
 
-  const logUserToApi = async () => {
+  const logUserToApi = async e => {
+    e.preventDefault()
     const resp = await axios.post('/auth/login', {
       email: loginEmail,
       password: loginPassword,
@@ -17,52 +20,52 @@ const Login = () => {
     console.log(resp.data)
     if (resp.status === 200) {
       localStorage.setItem('token', resp.data.token)
-      setShouldRedirect(true)
+      setWasSuccessfullyCreated({
+        shouldRedirect: true,
+      })
     }
   }
 
-  if (shouldRedirect) {
-    return <Redirect to="/" />
-  }
-
-  return (
-    <>
-      <div className="bg-container">
-        <div className="login-information-container">
-          <section className="logo-container">
-            <img className="logo" src={Logo} alt="logo" />
-          </section>
-          <section>
-            <input
-              type="text"
-              value={loginEmail}
-              onChange={e => setLoginEmail(e.target.value)}
-              className="email"
-              placeholder="Email"
-            />
-          </section>
-          <section>
-            <input
-              type="password"
-              value={loginPassword}
-              onChange={e => setLoginPassword(e.target.value)}
-              className="password"
-              placeholder="Password"
-            />
-          </section>
-          <div className="button-container">
-            <button onClick={logUserToApi} className="login-button">
-              Login!
-            </button>
+  if (wasSuccessfullyCreated.shouldRedirect) {
+    return <Redirect to="/my-profile" />
+  } else {
+    return (
+      <>
+        <form className="bg-container" onSubmit={logUserToApi}>
+          <div className="login-information-container">
+            <section className="logo-container">
+              <img className="logo" src={Logo} alt="logo" />
+            </section>
+            <section>
+              <input
+                type="text"
+                value={loginEmail}
+                onChange={e => setLoginEmail(e.target.value)}
+                className="email"
+                placeholder="Email"
+              />
+            </section>
+            <section>
+              <input
+                type="password"
+                value={loginPassword}
+                onChange={e => setLoginPassword(e.target.value)}
+                className="password"
+                placeholder="Password"
+              />
+            </section>
+            <div className="button-container">
+              <button className="login-button">Login!</button>
+            </div>
+            <aside>
+              <p>Don't have an account?</p>
+              <Link to="/signup">Sign up here!</Link>
+            </aside>
           </div>
-          <aside>
-            <p>Don't have an account?</p>
-            <Link to="/signup">Sign up here!</Link>
-          </aside>
-        </div>
-      </div>
-    </>
-  )
+        </form>
+      </>
+    )
+  }
 }
 
 export default Login

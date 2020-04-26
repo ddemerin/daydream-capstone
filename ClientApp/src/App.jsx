@@ -24,7 +24,7 @@ export default class App extends Component {
     return (
       <Router>
         <header>
-          <NavMenu />
+          {localStorage.getItem('token') ? <NavMenu /> : <></>}
           <div className="top-bar-border" />
           <div className="nav-conatiner">
             <img className="navBG" src={NavBG} alt="Nav Button BG" />
@@ -35,7 +35,7 @@ export default class App extends Component {
             </Link>
           </div>
         </header>
-        <BottomNavMenu />
+        {localStorage.getItem('token') ? <BottomNavMenu /> : <> </>}
         <Switch>
           <Route
             exact

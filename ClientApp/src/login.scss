@@ -3,9 +3,9 @@
 .login-information-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: relative;
   top: 10rem;
-  left: 7vw;
   background-color: rgba(45, 110, 230, 0.9);
   width: 350px;
   padding-top: 1.5rem;

@@ -27,16 +27,14 @@ const HomePage = () => {
         <section className="featured-container">
           <Featured featured={featured} />
         </section>
-        <section className="library-container">
-          <div className="library-header">
-            <h1 className="library-title">DAYDREAM LIBRARY</h1>
-          </div>
-          <ul>
-            {book.map(book => {
-              return <ListOfBooks book={book} key={book.id} />
-            })}
-          </ul>
-        </section>
+        <div className="library-header">
+          <h1 className="library-title">DAYDREAM LIBRARY</h1>
+        </div>
+        <ul className="library-container">
+          {book.map(book => {
+            return <ListOfBooks book={book} key={book.id} />
+          })}
+        </ul>
       </main>
     </>
   )
