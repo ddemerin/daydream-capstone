@@ -1,0 +1,61 @@
+@import './variables.scss';
+
+footer {
+  background-color: $header-background;
+  position: fixed;
+  bottom: 0;
+  height: 8.5vh;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
+  z-index: 5000;
+}
+
+.icon {
+  position: relative;
+  bottom: 2vh;
+  width: 8vh;
+  height: 8vh;
+  padding: 0;
+  margin: 0 0.5rem 1rem 0.5rem;
+  z-index: 1001;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.bottom-bar-border {
+  background-image: url(./images/Bottom.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 11vh;
+  width: 100%;
+  bottom: 2vh;
+}
+
+@media (min-width: 768px) {
+  .bottom-bar-border {
+    background-image: url(./images/Bottom.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 5vh;
+    width: 100%;
+    bottom: 2vh;
+  }
+
+  footer {
+    background-color: $header-background;
+    position: fixed;
+    bottom: 0;
+    height: 0.5vh;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    z-index: 5000;
+  }
+}

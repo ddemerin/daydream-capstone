@@ -21,6 +21,7 @@
   height: 600px;
   width: 600px;
   background: $nav-background;
+  background-position: center;
   color: $color;
   -webkit-clip-path: circle(24px at 30px 24px);
   clip-path: circle(3vh at 6.25vh 6vh);
@@ -49,9 +50,6 @@ a {
 
   &:active {
     background: #ffe082;
-  }
-  &:active {
-    background: $nav-background;
   }
 }
 
@@ -84,5 +82,20 @@ a {
     &:after {
       top: 7px;
     }
+  }
+
+  .icon {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .icons {
+    position: relative;
+    bottom: 2vh;
+    width: 8vh;
+    height: 8vh;
+    padding: 0;
+    margin: 0.5rem 0;
   }
 }

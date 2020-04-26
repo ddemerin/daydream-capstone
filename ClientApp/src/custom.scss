@@ -81,43 +81,6 @@ p {
   color: rgb(80, 76, 126);
 }
 
-.bottom-bar-border {
-  background-image: url(./images/Bottom.png);
-  background-repeat: no-repeat;
-  position: absolute;
-  height: 11vh;
-  width: 100%;
-  bottom: 2vh;
-}
-
-footer {
-  background-color: $header-background;
-  position: fixed;
-  bottom: 0;
-  height: 8.5vh;
-  width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin: 0;
-  z-index: 5000;
-}
-
-.icon {
-  position: relative;
-  bottom: 2vh;
-  width: 8vh;
-  height: 8vh;
-  padding: 0;
-  margin: 0 0.5rem 1rem 0.5rem;
-  z-index: 1001;
-}
-
-.bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  margin: 0;
-}
-
 @media (min-width: 768px) {
   main {
     display: flex;
@@ -129,7 +92,7 @@ footer {
     padding: 0;
     position: fixed;
     left: 1.5rem;
-    top: 35vh;
+    top: 25vh;
     width: 50vw;
   }
 
@@ -143,21 +106,11 @@ footer {
     position: relative;
     left: 52.5vw;
     top: 5vh;
-    margin-top: 15rem;
+    margin-top: 10rem;
   }
 
   .icon {
     display: none;
-  }
-
-  .home {
-    position: relative;
-    left: 25rem;
-  }
-
-  .write {
-    position: relative;
-    right: 26rem;
   }
 }
 

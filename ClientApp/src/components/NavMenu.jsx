@@ -17,19 +17,19 @@ const NavMenu = () => {
           </li>
           <li>
             <Link to="/">
-              <img className="home icon" src={HomeIcon} alt="Home Icon" />
+              <img className="icons" src={HomeIcon} alt="Home Icon" />
               {/* <p>HOME</p> */}
             </Link>
           </li>
           <li>
             <Link to="/search">
-              <img className="search icon" src={SearchIcon} alt="Search Icon" />
+              <img className="icons" src={SearchIcon} alt="Search Icon" />
               {/* <p>SEARCH</p> */}
             </Link>
           </li>
           <li>
             <Link to="/author">
-              <img className="write icon" src={WriteIcon} alt="Write Icon" />
+              <img className="icons" src={WriteIcon} alt="Write Icon" />
               {/* <p>WRITE</p> */}
             </Link>
           </li>

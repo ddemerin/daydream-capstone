@@ -24,13 +24,15 @@ const MyProfile = () => {
 
   return (
     <main>
-      <div className="banner-container">
-        <img className="banner" src={Banner} alt="Profile Banner" />
-      </div>
-      <h1 className="profile-name">{profile.fullName}</h1>
-      <div className="user-portrait">
-        <img className="profile-pic" src={ProfilePic} alt="Placeholder" />
-      </div>
+      <section className="user-profile-container">
+        <div className="banner-container">
+          <img className="banner" src={Banner} alt="Profile Banner" />
+        </div>
+        <h1 className="profile-name">{profile.fullName}</h1>
+        <div className="user-portrait">
+          <img className="profile-pic" src={ProfilePic} alt="Placeholder" />
+        </div>
+      </section>
       <section className="user-favorites">
         <div className="favorites-header-container">
           <h3>Favorites</h3>

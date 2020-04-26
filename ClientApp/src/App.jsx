@@ -35,9 +35,7 @@ export default class App extends Component {
             </Link>
           </div>
         </header>
-        <footer>
-          <BottomNavMenu />
-        </footer>
+        <BottomNavMenu />
         <Switch>
           <Route
             exact
