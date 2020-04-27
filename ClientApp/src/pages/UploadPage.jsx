@@ -21,8 +21,8 @@ export const UploadPage = props => {
         },
       })
       .then(resp => {
-        console.log(resp.data)
-        console.log(images)
+        // console.log(resp.data)
+        // console.log(images)
         setImages(prevImages => [resp.data, ...prevImages])
       })
   })
@@ -32,7 +32,7 @@ export const UploadPage = props => {
   const loadPages = async () => {
     const resp = await axios.get(`/api/book/${bookId}/page`)
     setImages(resp.data)
-    console.log(resp.data)
+    // console.log(resp.data)
   }
 
   useEffect(() => {
@@ -62,14 +62,18 @@ export const UploadPage = props => {
           cover and continuing with page 1, then page 2, etc, etc.
         </p>
       </section>
-      {images.map(image => {
-        return (
-          <li className="image-tile">
-            <img src={image.imageUrl} alt="" />
-            {/* <p>{image.dateSubmitted}</p> */}
-          </li>
-        )
-      })}
+      <div className="pages-container">
+        <ul className="pages-list-container">
+          {images.map(image => {
+            return (
+              <li className="image-tile">
+                <img src={image.imageUrl} alt="" />
+                {/* <p>{image.dateSubmitted}</p> */}
+              </li>
+            )
+          })}
+        </ul>
+      </div>
       <div className="bottom-margin" />
     </div>
   )

@@ -111,9 +111,12 @@
     font-size: 2.5rem;
   }
 
-  .clouds {
-    width: auto;
-    height: 32vh;
+  .cloud-container {
+    .clouds {
+      width: auto;
+      height: 32vh;
+      bottom: 32vh;
+    }
   }
 }
 
@@ -133,5 +136,13 @@
 
   .featured-title {
     font-size: 3.5rem;
+  }
+
+  .cloud-container {
+    .clouds {
+      width: auto;
+      height: 45vh;
+      bottom: 36vh;
+    }
   }
 }
