@@ -71,11 +71,8 @@
 
 @media (min-width: 768px) {
   .featured-banner {
-    position: relative;
-    bottom: 2vh;
     width: auto;
     height: 20vh;
-    z-index: 1;
   }
 
   .featured-book-container {
@@ -97,7 +94,8 @@
   }
 
   .featured-book-image {
-    border-radius: 0.25rem;
+    height: 45vh;
+    width: 32vh;
   }
 
   .featured-book-writeup-container {
@@ -120,9 +118,13 @@
 }
 
 @media (min-width: 1024px) {
+  .featured-banner {
+    height: 19vh;
+  }
+
   .featured-book-image {
-    height: 40vh;
-    width: 29vh;
+    height: 49vh;
+    width: 35vh;
   }
 
   .featured-book-writeup-container {

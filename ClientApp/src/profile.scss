@@ -2,7 +2,7 @@
 
 main {
   .user-profile-container {
-    margin-top: 3rem;
+    margin-top: 6.5rem;
   }
 
   .banner-container {
@@ -26,7 +26,7 @@ main {
     display: flex;
     justify-content: center;
     position: relative;
-    bottom: 9.5vh;
+    bottom: 8.25vh;
 
     .profile-pic {
       height: 160px;
@@ -36,6 +36,7 @@ main {
 
   .user-favorites {
     position: relative;
+    background: rgba(98, 143, 233, 0.739);
     bottom: 5vh;
     display: flex;
     flex-direction: column;
@@ -44,7 +45,7 @@ main {
 
   .favorites-header-container {
     padding-top: 0.5rem;
-    background-color: $header-background;
+    background-color: rgb(59, 97, 173);
   }
 
   h3 {
@@ -79,18 +80,19 @@ main {
 }
 
 @media (min-width: 768px) {
-  .user-favorites {
-    position: relative;
-    left: 13vw;
-    top: 5vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  main {
+    .favorite-books-container {
+      grid-template-columns: 33.3% 33.3% 33.3%;
+      margin-bottom: 1rem;
+    }
   }
+}
 
-  .favorite-books-container {
-    display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
-    margin-bottom: 3rem;
+@media (min-width: 1024px) {
+  main {
+    .favorite-books-container {
+      grid-template-columns: 25% 25% 25% 25%;
+      margin-bottom: 1rem;
+    }
   }
 }

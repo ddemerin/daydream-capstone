@@ -44,7 +44,7 @@ footer {
     position: absolute;
     height: 7vh;
     width: 100%;
-    bottom: 1.25vh;
+    bottom: 0.75vh;
   }
 
   footer {
@@ -63,6 +63,6 @@ footer {
 @media (min-width: 1024px) {
   .bottom-bar-border {
     height: 9.5vh;
-    bottom: -1.25rem;
+    bottom: -2vh;
   }
 }
