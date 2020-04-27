@@ -17,6 +17,10 @@
   z-index: 1;
 }
 
+.icon-container {
+  display: none;
+}
+
 .top-nav {
   height: 600px;
   width: 600px;
@@ -55,9 +59,10 @@
     display: block;
     line-height: 50px;
     padding: 0 20px;
-    color: inherit;
+    color: rgb(59, 97, 173);
     cursor: pointer;
     user-select: none;
+    font-family: 'Margarine', cursive;
 
     &:active {
       background: #ffe082;
@@ -84,10 +89,13 @@
     }
   }
 
-  .profile-icon {
+  .profile-icon-container {
     margin-top: 2rem;
-    height: 6vh;
-    width: 6vh;
+
+    .profile-icon {
+      height: 6vh;
+      width: 6vh;
+    }
   }
 }
 
@@ -96,14 +104,16 @@
     left: 1.25vh;
     top: 1vh;
   }
-
-  .icons {
+  .icon-container {
     display: flex;
-    position: relative;
-    width: 5vh;
-    height: 5vh;
-    padding: 0;
-    margin: 0.5rem 0;
+    flex-direction: row;
+
+    .icons {
+      width: 5vh;
+      height: 5vh;
+      padding: 0;
+      margin: 0.5rem 0;
+    }
   }
 
   .top-nav {
@@ -118,5 +128,12 @@
   .hamburger {
     left: 1.5vh;
     top: 0.85vw;
+  }
+
+  .top-nav {
+    &:hover,
+    :active {
+      clip-path: circle(350px at 10px 64px);
+    }
   }
 }

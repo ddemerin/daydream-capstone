@@ -16,28 +16,31 @@ const NavMenu = () => {
         <div className="navicon">
           <ul>
             <img className="hamburger" src={Hamburger} alt="Hamburger" />
-            <li>
+            <li className="profile-icon-container">
               <Link to="/my-profile">
                 <img
                   className="profile-icon"
                   src={ProfileIcon}
                   alt="Profile Icon"
                 />
+                Profile
               </Link>
             </li>
-            <li>
+            <li className="icon-container">
               <Link to="/">
-                <img className="icons" src={HomeIcon} alt="Home Icon" />
+                <img className="icons" src={HomeIcon} alt="Home Icon" /> Home
               </Link>
             </li>
-            <li>
+            <li className="icon-container">
               <Link to="/search">
-                <img className="icons" src={SearchIcon} alt="Search Icon" />
+                <img className="icons" src={SearchIcon} alt="Search Icon" />{' '}
+                Search
               </Link>
             </li>
-            <li>
+            <li className="icon-container">
               <Link to="/author">
-                <img className="icons" src={WriteIcon} alt="Write Icon" />
+                <img className="icons" src={WriteIcon} alt="Write Icon" />{' '}
+                Upload
               </Link>
             </li>
             <li>
