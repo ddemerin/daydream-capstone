@@ -4,8 +4,8 @@
   height: 4vh;
   width: 5vh;
   position: relative;
-  left: 0.75rem;
-  top: 0.75rem;
+  left: 1.25vh;
+  top: 1vw;
 }
 
 .navBG {
@@ -91,31 +91,10 @@
   }
 }
 
-@media (min-height: 736px) {
-  .hamburger {
-    left: 0.45rem;
-    top: 0.5rem;
-  }
-}
-
-@media (min-height: 850px) {
-  .hamburger {
-    left: 0.75rem;
-    top: 0.65rem;
-  }
-}
-
-@media (min-height: 900px) {
-  .hamburger {
-    left: 0.85rem;
-    top: 0.65rem;
-  }
-}
-
 @media (min-width: 768px) {
   .hamburger {
-    left: 0.75rem;
-    top: 0.75rem;
+    left: 1.25vh;
+    top: 1vh;
   }
 
   .icons {
@@ -136,4 +115,8 @@
 }
 
 @media (min-width: 1024px) {
+  .hamburger {
+    left: 1.5vh;
+    top: 0.85vw;
+  }
 }

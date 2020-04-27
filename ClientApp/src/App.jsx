@@ -11,10 +11,7 @@ import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import NavMenu from './components/NavMenu'
 import BottomNavMenu from './components/BottomNavMenu'
-import NavBG from './images/NavBarContainer.png'
-import Logo from './images/Daydream_LOGO.png'
 import MyProfile from './pages/MyProfile'
-import './custom.scss'
 import { Redirect } from 'react-router'
 
 export default class App extends Component {
@@ -23,18 +20,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <header>
-          {localStorage.getItem('token') ? <NavMenu /> : <></>}
-          <div className="top-bar-border" />
-          <div className="nav-conatiner">
-            <img className="navBG" src={NavBG} alt="Nav Button BG" />
-          </div>
-          <div className="logo-container">
-            <Link to="/">
-              <img className="logo" src={Logo} alt="logo" />
-            </Link>
-          </div>
-        </header>
+        {localStorage.getItem('token') ? <NavMenu /> : <></>}
         {localStorage.getItem('token') ? <BottomNavMenu /> : <> </>}
         <Switch>
           <Route

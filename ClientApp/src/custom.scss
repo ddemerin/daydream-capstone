@@ -61,8 +61,8 @@ li {
 
 .library-header {
   position: relative;
-  background: $header-background;
-  padding: 2rem 0 2rem 0;
+  background: rgb(59, 97, 173);
+  padding: 1.25rem 0 1rem 0;
   bottom: 20vh;
 }
 
@@ -88,9 +88,11 @@ p {
   }
 
   .library-header {
-    position: relative;
-    background: $header-background;
     padding: 1rem 1rem;
+  }
+
+  .library-title {
+    font-size: 3rem;
   }
 
   .icon {
@@ -102,5 +104,9 @@ p {
   .library-container {
     display: flex;
     flex-direction: column;
+  }
+
+  .library-title {
+    font-size: 3.5rem;
   }
 }

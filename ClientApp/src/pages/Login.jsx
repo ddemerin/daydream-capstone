@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Logo from '../images/Daydream_LOGO.png'
+import Sun from '../images/Sun.png'
+import { Alert } from 'reactstrap'
 import { Redirect, Link } from 'react-router-dom'
 import '../login.scss'
 
@@ -11,17 +13,26 @@ const Login = () => {
     shouldRedirect: false,
   })
 
+  const [visible, setVisible] = useState(false)
+  const onClose = () => setVisible(false)
+
   const logUserToApi = async e => {
     e.preventDefault()
-    const resp = await axios.post('/auth/login', {
-      email: loginEmail,
-      password: loginPassword,
-    })
-    console.log(resp.data)
-    if (resp.status === 200) {
-      localStorage.setItem('token', resp.data.token)
-      setWasSuccessfullyCreated({
-        shouldRedirect: true,
+    try {
+      const resp = await axios.post('/auth/login', {
+        email: loginEmail,
+        password: loginPassword,
+      })
+      // console.log(resp.data)
+      if (resp.status === 200) {
+        localStorage.setItem('token', resp.data.token)
+        setWasSuccessfullyCreated({
+          shouldRedirect: true,
+        })
+      }
+    } catch (error) {
+      setVisible(prevVisible => {
+        return { ...prevVisible, visible: true }
       })
     }
   }
@@ -31,8 +42,12 @@ const Login = () => {
   } else {
     return (
       <>
-        <form className="bg-container" onSubmit={logUserToApi}>
+        <img className="sun" src={Sun} alt="Sun" />
+        <form className="login-form-container" onSubmit={logUserToApi}>
           <div className="login-information-container">
+            <Alert isOpen={visible} toggle={onClose} color="danger">
+              <p>Incorrect email or password! Try Again!</p>
+            </Alert>
             <section className="logo-container">
               <img className="logo" src={Logo} alt="logo" />
             </section>
@@ -63,6 +78,7 @@ const Login = () => {
             </aside>
           </div>
         </form>
+        <div className="bg-container" />
       </>
     )
   }

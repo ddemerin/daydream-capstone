@@ -33,7 +33,7 @@ const Featured = props => {
           </div>
         </div>
         <div className="featured-book-writeup-container">
-          <h3>{featured.title}</h3>
+          <h3 className="featured-title">{featured.title}</h3>
         </div>
       </section>
       <div className="cloud-container">

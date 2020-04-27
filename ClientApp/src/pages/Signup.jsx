@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Logo from '../images/Daydream_LOGO.png'
+import Sun from '../images/Sun.png'
+import { Alert } from 'reactstrap'
 import { Redirect, Link } from 'react-router-dom'
 import '../login.scss'
 
@@ -10,16 +12,26 @@ const Signup = () => {
   const [password, setPassword] = useState('')
   const [shouldRedirect, setShouldRedirect] = useState(false)
 
-  const sendNewUserToApi = async () => {
-    const resp = await axios.post('/auth/signup/', {
-      fullName: fullName,
-      email: email,
-      password: password,
-    })
-    console.log(resp.data)
-    if (resp.status === 200) {
-      localStorage.setItem('token', resp.data.token)
-      setShouldRedirect(true)
+  const [visible, setVisible] = useState(false)
+  const onClose = () => setVisible(false)
+
+  const sendNewUserToApi = async e => {
+    e.preventDefault()
+    try {
+      const resp = await axios.post('/auth/signup/', {
+        fullName: fullName,
+        email: email,
+        password: password,
+      })
+      console.log(resp.data)
+      if (resp.status === 200) {
+        localStorage.setItem('token', resp.data.token)
+        setShouldRedirect(true)
+      }
+    } catch (error) {
+      setVisible(prevVisible => {
+        return { ...prevVisible, visible: true }
+      })
     }
   }
 
@@ -29,8 +41,12 @@ const Signup = () => {
 
   return (
     <>
-      <div className="bg-container">
+      <img className="sun" src={Sun} alt="Sun" />
+      <form className="login-form-container" onSubmit={sendNewUserToApi}>
         <div className="login-information-container">
+          <Alert isOpen={visible} toggle={onClose} color="danger">
+            <p>Password must be at least 7 characters long!</p>
+          </Alert>
           <section className="logo-container">
             <img className="logo" src={Logo} alt="logo" />
           </section>
@@ -62,13 +78,12 @@ const Signup = () => {
             />
           </section>
           <div className="button-container">
-            <button onClick={sendNewUserToApi} className="signup-button">
-              Sign up!
-            </button>
+            <button className="signup-button">Sign up!</button>
           </div>
           <Link to="/login">Have an account?</Link>
         </div>
-      </div>
+      </form>
+      <div className="bg-container" />
     </>
   )
 }
