@@ -1,5 +1,5 @@
 import React from 'react'
-import '../listOfBook.scss'
+import '../styles/listOfBook.scss'
 
 const ListOfBooks = props => {
   const { book } = props

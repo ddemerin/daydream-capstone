@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
-import '../upload.scss'
+import '../styles/upload.scss'
 
 export const UploadPage = props => {
   const bookId = props.match.params.id

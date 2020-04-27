@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import '../search.scss'
 import axios from 'axios'
 import ListOfBooks from '../components/ListOfBooks'
+import '../styles/search.scss'
 
 const Search = () => {
   const [book, setBook] = useState([])

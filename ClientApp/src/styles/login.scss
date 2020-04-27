@@ -77,7 +77,7 @@
 }
 
 .bg-container {
-  background-image: url(./images/LoginMobile.png);
+  background-image: url(../images/LoginMobile.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -108,21 +108,21 @@
 
 @media (min-width: 900px) {
   .bg-container {
-    background-image: url(./images/LoginTablet.png);
+    background-image: url(../images/LoginTablet.png);
     height: 110vh;
   }
 }
 
 @media (min-width: 1244px) {
   .bg-container {
-    background-image: url(./images/LoginDesktop_1024.png);
+    background-image: url(../images/LoginDesktop_1024.png);
     height: 110vh;
   }
 }
 
 @media (min-width: 1600px) {
   .bg-container {
-    background-image: url(./images/LoginDesktop_1444.png);
+    background-image: url(../images/LoginDesktop_1444.png);
     height: 110vh;
   }
 }

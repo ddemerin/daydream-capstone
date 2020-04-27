@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Banner from '../images/Banner.png'
 import ProfilePic from '../images/Profile_Placeholder.png'
 import axios from 'axios'
-import '../profile.scss'
+import '../styles/profile.scss'
 
 const MyProfile = () => {
   const [profile, setProfile] = useState({})

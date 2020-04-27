@@ -96,7 +96,17 @@
   }
 
   .listofbooks-description {
-    margin-top: 1rem;
+    margin-top: 5rem;
     font-size: 1.5rem;
+  }
+
+  .listofbooks-book-image-border {
+    background-color: rgba(103, 148, 231, 0.589);
+    border: 0.05rem solid rgb(120, 151, 209);
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.25rem;
+    padding-top: 1rem;
+    box-shadow: -5px -5px 5px rgba(75, 75, 82, 0.164);
   }
 }

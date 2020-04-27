@@ -7,7 +7,7 @@ import WriteIcon from '../images/writeIcon4x4.png'
 import ProfileIcon from '../images/Profile_Placeholder_Small.png'
 import NavBG from '../images/NavBarContainer.png'
 import Logo from '../images/Daydream_LOGO.png'
-import '../navMenu.scss'
+import '../styles/navMenu.scss'
 
 const NavMenu = () => {
   return (

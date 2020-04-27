@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import '../write.scss'
+import '../styles/write.scss'
 
 const UploadBook = props => {
   const authorId = props.match.params.id

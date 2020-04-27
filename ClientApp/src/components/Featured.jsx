@@ -1,7 +1,7 @@
 import React from 'react'
 import Banner from '../images/Featured_Banner.png'
 import Clouds from '../images/FeaturedClouds.png'
-import '../featuredBook.scss'
+import '../styles/featuredBook.scss'
 
 const Featured = props => {
   const { featured } = props

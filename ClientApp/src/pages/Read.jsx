@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import FlipBook from '../components/FlipBook'
 import PageLoader from '../components/PageLoader'
-import '../flipBook.scss'
+import '../styles/flipBook.scss'
 
 const Read = props => {
   const bookId = props.match.params.id

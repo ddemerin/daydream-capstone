@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import HomeIcon from '../images/homeIcon4x4.png'
 import SearchIcon from '../images/searchIcon4x4.png'
 import WriteIcon from '../images/writeIcon4x4.png'
-import '../bottomNavMenu.scss'
+import '../styles/bottomNavMenu.scss'
 
 const BottomNavMenu = () => {
   return (

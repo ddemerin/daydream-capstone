@@ -29,7 +29,7 @@ footer {
 }
 
 .bottom-bar-border {
-  background-image: url(./images/Bottom.png);
+  background-image: url(../images/Bottom.png);
   background-repeat: no-repeat;
   position: absolute;
   height: 10.75vh;
@@ -39,7 +39,7 @@ footer {
 
 @media (min-width: 768px) {
   .bottom-bar-border {
-    background-image: url(./images/Bottom.png);
+    background-image: url(../images/Bottom.png);
     background-repeat: no-repeat;
     position: absolute;
     height: 7vh;

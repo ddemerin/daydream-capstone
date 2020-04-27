@@ -4,7 +4,7 @@ import Logo from '../images/Daydream_LOGO.png'
 import Sun from '../images/Sun.png'
 import { Alert } from 'reactstrap'
 import { Redirect, Link } from 'react-router-dom'
-import '../login.scss'
+import '../styles/login.scss'
 
 const Signup = () => {
   const [fullName, setFullName] = useState('')
