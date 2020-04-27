@@ -13,9 +13,7 @@ const UploadAuthor = () => {
   const updateAuthorData = e => {
     e.preventDefault()
     const key = e.target.name
-    console.log(key)
     const value = e.target.value
-    console.log(value)
     setAuthor(prevAuthor => {
       prevAuthor[key] = value
       return prevAuthor
@@ -24,15 +22,12 @@ const UploadAuthor = () => {
 
   const addAuthorToApi = async e => {
     e.preventDefault()
-    // console.log('adding', author)
     const resp = await axios.post(`api/author/`, author)
-    // console.log(resp)
     if (resp.status === 201) {
       setWasSuccessfullyCreated({
         shouldRedirect: true,
         newAuthorInformation: resp.data,
       })
-      console.log(resp.data)
     }
   }
   if (wasSuccessfullyCreated.shouldRedirect) {

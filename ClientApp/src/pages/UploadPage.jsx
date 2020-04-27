@@ -6,10 +6,8 @@ import '../styles/upload.scss'
 export const UploadPage = props => {
   const bookId = props.match.params.id
   const [images, setImages] = useState([])
-  console.log(bookId)
 
   const onDrop = useCallback(acceptedFiles => {
-    console.log(acceptedFiles)
     const fileToPage = acceptedFiles[0]
     const formData = new FormData()
     formData.append('file', fileToPage)
@@ -21,8 +19,6 @@ export const UploadPage = props => {
         },
       })
       .then(resp => {
-        // console.log(resp.data)
-        // console.log(images)
         setImages(prevImages => [resp.data, ...prevImages])
       })
   })
@@ -32,7 +28,6 @@ export const UploadPage = props => {
   const loadPages = async () => {
     const resp = await axios.get(`/api/book/${bookId}/page`)
     setImages(resp.data)
-    // console.log(resp.data)
   }
 
   useEffect(() => {
@@ -68,7 +63,6 @@ export const UploadPage = props => {
             return (
               <li className="image-tile">
                 <img src={image.imageUrl} alt="" />
-                {/* <p>{image.dateSubmitted}</p> */}
               </li>
             )
           })}

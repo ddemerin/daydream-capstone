@@ -13,8 +13,6 @@ const MyProfile = () => {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
     })
-
-    console.log(resp.data)
     setProfile(resp.data)
   }
 

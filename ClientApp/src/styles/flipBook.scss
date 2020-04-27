@@ -13,9 +13,15 @@
 
 .bookmark {
   position: absolute;
-  left: 32vw;
-  bottom: 4rem;
+  left: 29vw;
+  bottom: 1rem;
   z-index: 5001;
+
+  .favorite-star {
+    height: 4vh;
+    width: auto;
+    cursor: pointer;
+  }
 }
 
 @media (min-height: 666px) {

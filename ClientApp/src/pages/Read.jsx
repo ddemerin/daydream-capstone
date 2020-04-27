@@ -2,28 +2,24 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import FlipBook from '../components/FlipBook'
 import PageLoader from '../components/PageLoader'
+import Star from '../images/Favorite-Star-Clicked.png'
 import '../styles/flipBook.scss'
 
 const Read = props => {
   const bookId = props.match.params.id
-  console.log(props)
   const [book, setBook] = useState({ pages: [] })
-  console.log(book)
-  console.log(book.pages)
 
   const getBookData = async () => {
     const resp = await axios.get(`/api/book/${bookId}`)
     setBook(resp.data)
-    console.log(resp.data)
   }
 
   useEffect(() => {
     getBookData()
   }, [])
-  console.log(book)
 
   const saveBookForLater = async () => {
-    const resp = await axios.post(
+    await axios.post(
       `/api/bookmark/${book.id}`,
       {},
       {
@@ -32,7 +28,6 @@ const Read = props => {
         },
       }
     )
-    console.log(resp.data)
   }
 
   if (book) {
@@ -43,7 +38,12 @@ const Read = props => {
         </section>
         {localStorage.getItem('token') ? (
           <section className="bookmark">
-            <button onClick={saveBookForLater}>bookmark for later</button>
+            <img
+              className="favorite-star"
+              src={Star}
+              alt="Favorite Star"
+              onClick={saveBookForLater}
+            />
           </section>
         ) : (
           <></>

@@ -5,12 +5,10 @@ import '../styles/search.scss'
 
 const Search = () => {
   const [book, setBook] = useState([])
-  console.log(book)
 
   const getBookData = async () => {
     const respBook = await axios.get(`api/book/`)
     setBook(respBook.data)
-    console.log(respBook.data)
   }
 
   useEffect(() => {
@@ -24,7 +22,6 @@ const Search = () => {
     const respSearch = await axios.get(
       `/api/search/books?searchTerm=${searchTerm}`
     )
-    console.log(respSearch.data)
     setResults(respSearch.data)
   }
 
@@ -44,10 +41,10 @@ const Search = () => {
         <ul className="list-of-books">
           {results.length > 0
             ? results.map(results => {
-                return <ListOfBooks book={results} />
+                return <ListOfBooks book={results} key={results.id} />
               })
             : book.map(book => {
-                return <ListOfBooks book={book} />
+                return <ListOfBooks book={book} key={book.id} />
               })}
         </ul>
       </section>

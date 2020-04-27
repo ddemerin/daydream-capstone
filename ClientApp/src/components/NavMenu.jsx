@@ -22,7 +22,7 @@ const NavMenu = () => {
                   className="profile-icon"
                   src={ProfileIcon}
                   alt="Profile Icon"
-                />
+                />{' '}
                 Profile
               </Link>
             </li>

@@ -26,6 +26,7 @@ const ListOfBooks = props => {
         </div>
         <div className="listofbooks-book-writeup-container">
           <article className="listofbooks-book-writeup">
+            <h3>{book.title}</h3>
             <p className="listofbooks-description">{book.description}</p>
           </article>
         </div>

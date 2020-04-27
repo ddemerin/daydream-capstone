@@ -14,9 +14,7 @@ const UploadBook = props => {
   const updateBookData = e => {
     e.preventDefault()
     const key = e.target.name
-    console.log(key)
     const value = e.target.value
-    console.log(value)
     setBook(prevBook => {
       prevBook[key] = value
       return prevBook
@@ -25,9 +23,7 @@ const UploadBook = props => {
 
   const addBookToApi = async e => {
     e.preventDefault()
-    console.log('adding', book)
     const resp = await axios.post(`api/author/${authorId}/book`, book)
-    console.log(resp)
     if (resp.status === 200) {
       setWasSuccessfullyCreated({
         shouldRedirect: true,
