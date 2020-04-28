@@ -56,7 +56,7 @@ const Signup = () => {
               value={fullName}
               onChange={e => setFullName(e.target.value)}
               className="login"
-              placeholder="Full Name"
+              placeholder="First Name"
             />
           </section>
           <section>
