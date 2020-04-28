@@ -3,7 +3,7 @@ import axios from 'axios'
 import Logo from '../images/Daydream_LOGO.png'
 import Sun from '../images/Sun.png'
 import { Alert } from 'reactstrap'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../styles/login.scss'
 
 const Signup = () => {
@@ -23,7 +23,6 @@ const Signup = () => {
         email: email,
         password: password,
       })
-      console.log(resp.data)
       if (resp.status === 200) {
         localStorage.setItem('token', resp.data.token)
         setShouldRedirect(true)
@@ -36,56 +35,58 @@ const Signup = () => {
   }
 
   if (shouldRedirect) {
-    return <Redirect to="/my-profile" />
-  }
-
-  return (
-    <>
-      <img className="sun" src={Sun} alt="Sun" />
-      <form className="login-form-container" onSubmit={sendNewUserToApi}>
-        <div className="login-information-container">
-          <Alert isOpen={visible} toggle={onClose} color="danger">
-            <p>Password must be at least 7 characters long!</p>
-          </Alert>
-          <section className="logo-container">
-            <img className="logo" src={Logo} alt="logo" />
-          </section>
-          <section>
-            <input
-              type="text"
-              value={fullName}
-              onChange={e => setFullName(e.target.value)}
-              className="login"
-              placeholder="First Name"
-            />
-          </section>
-          <section>
-            <input
-              type="text"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              className="email"
-              placeholder="Email"
-            />
-          </section>
-          <section>
-            <input
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              className="password"
-              placeholder="Password"
-            />
-          </section>
-          <div className="button-container">
-            <button className="signup-button">Sign up!</button>
+    window.location = '/my-profile'
+    return <p></p>
+    // return <Redirect to="/my-profile" />
+  } else {
+    return (
+      <>
+        <img className="sun" src={Sun} alt="Sun" />
+        <form className="login-form-container" onSubmit={sendNewUserToApi}>
+          <div className="login-information-container">
+            <Alert isOpen={visible} toggle={onClose} color="danger">
+              <p>Password must be at least 7 characters long!</p>
+            </Alert>
+            <section className="logo-container">
+              <img className="logo" src={Logo} alt="logo" />
+            </section>
+            <section>
+              <input
+                type="text"
+                value={fullName}
+                onChange={e => setFullName(e.target.value)}
+                className="login"
+                placeholder="First Name"
+              />
+            </section>
+            <section>
+              <input
+                type="text"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                className="email"
+                placeholder="Email"
+              />
+            </section>
+            <section>
+              <input
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                className="password"
+                placeholder="Password"
+              />
+            </section>
+            <div className="button-container">
+              <button className="signup-button">Sign up!</button>
+            </div>
+            <Link to="/login">Have an account?</Link>
           </div>
-          <Link to="/login">Have an account?</Link>
-        </div>
-      </form>
-      <div className="bg-container" />
-    </>
-  )
+        </form>
+        <div className="bg-container" />
+      </>
+    )
+  }
 }
 
 export default Signup

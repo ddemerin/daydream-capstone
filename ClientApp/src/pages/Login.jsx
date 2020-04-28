@@ -3,7 +3,7 @@ import axios from 'axios'
 import Logo from '../images/Daydream_LOGO.png'
 import Sun from '../images/Sun.png'
 import { Alert } from 'reactstrap'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../styles/login.scss'
 
 const Login = () => {
@@ -37,10 +37,13 @@ const Login = () => {
   }
 
   if (wasSuccessfullyCreated.shouldRedirect) {
-    return <Redirect to="/my-profile" />
+    window.location = '/my-profile'
+    return <p></p>
+    // return <Redirect to="/my-profile" />
   } else {
     return (
       <>
+        {localStorage.clear('token')}
         <img className="sun" src={Sun} alt="Sun" />
         <form className="login-form-container" onSubmit={logUserToApi}>
           <div className="login-information-container">

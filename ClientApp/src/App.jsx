@@ -18,6 +18,8 @@ export default class App extends Component {
   static displayName = App.name
 
   render() {
+    console.log(localStorage.getItem('token'))
+
     return (
       <Router>
         {localStorage.getItem('token') ? <NavMenu /> : <></>}

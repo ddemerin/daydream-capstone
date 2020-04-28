@@ -43,9 +43,9 @@ const NavMenu = () => {
                 Upload
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/login">Logout</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>
