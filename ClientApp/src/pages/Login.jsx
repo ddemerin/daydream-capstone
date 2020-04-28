@@ -23,7 +23,6 @@ const Login = () => {
         email: loginEmail,
         password: loginPassword,
       })
-      // console.log(resp.data)
       if (resp.status === 200) {
         localStorage.setItem('token', resp.data.token)
         setWasSuccessfullyCreated({

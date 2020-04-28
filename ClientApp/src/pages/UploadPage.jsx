@@ -6,6 +6,7 @@ import '../styles/upload.scss'
 export const UploadPage = props => {
   const bookId = props.match.params.id
   const [images, setImages] = useState([])
+  console.log(images)
 
   const onDrop = useCallback(acceptedFiles => {
     const fileToPage = acceptedFiles[0]
@@ -24,15 +25,6 @@ export const UploadPage = props => {
   })
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
-
-  const loadPages = async () => {
-    const resp = await axios.get(`/api/book/${bookId}/page`)
-    setImages(resp.data)
-  }
-
-  useEffect(() => {
-    loadPages()
-  }, [])
 
   return (
     <div className="upload-container">
@@ -61,7 +53,7 @@ export const UploadPage = props => {
         <ul className="pages-list-container">
           {images.map(image => {
             return (
-              <li className="image-tile">
+              <li className="image-tile" key={image.id}>
                 <img src={image.imageUrl} alt="" />
               </li>
             )

@@ -70,14 +70,6 @@ const UploadBook = props => {
                 onChange={updateBookData}
                 required
               />
-              {/* <p>When was the book written?</p>
-    <input
-      className="date-input"
-      type="text"
-      name="DateWritten"
-      onChange={updateBookData}
-      required
-    /> */}
             </section>
           </div>
           <div className="upload-button">
