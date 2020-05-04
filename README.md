@@ -19,9 +19,10 @@ Flip-book Component: github.com/darenju/react-flip-page
 
 ## Future Versions:
 
-- animated content
+- animated icons
+- voice-over
 - community forums
-- connecting artists and writers for collaborations
+- connecting artists and writers for collaboration
 
 ---
 
